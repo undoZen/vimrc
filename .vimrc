@@ -1,3 +1,4 @@
+set nocompatible "不使用兼容模式
 autocmd! bufwritepost _vimrc source %
 
 " map 我的常用按键
@@ -33,11 +34,6 @@ nmap <C-d> :NERDTreeToggle<cr>
 
 
 
-"设置配色方案
-"http://www.h3rald.com/articles/herald-vim-color-scheme/
-colo herald
-
-set nocompatible "不使用兼容模式"
 "set rnu "使用相对行号 (7.3)
 set number "显示行号
 set ruler "在右下角显示当前行列等信息
@@ -88,6 +84,31 @@ inoremap <C-E> <End>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
+" Leeiio 童鞋对以下设置亦有贡献
+" https://github.com/Leeiio/Vim/blob/master/vimrc
+
+" 获取当前目录
+func! GetPWD()
+    return substitute(getcwd(), "", "", "g")
+endf
+
+" 标签页
+set tabpagemax=15 " 最多15个标签
+set showtabline=2 " 总是显示标签栏
+
+" 关闭遇到错误时的声音提示
+set noerrorbells
+
+" 命令行与状态行
+set cmdheight=1 " 设置命令行的高度
+set laststatus=2 " 始终显示状态行
+set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P] "设置状态栏的信息
+
+
+"设置配色方案
+"http://www.h3rald.com/articles/herald-vim-color-scheme/
+colo herald
+
 " 安装的插件及其设置
 " VimBall 安装插件必备
 " http://www.vim.org/scripts/script.php?script_id=1502
@@ -132,23 +153,9 @@ vmap <C-A-E> <Plug>ZenCodingExpandVisual
 " http://www.vim.org/scripts/script.php?script_id=1658
 map <F8> :NERDTreeToggle<CR>
 
-" Leeiio 童鞋对以下设置亦有贡献
-" https://github.com/Leeiio/Vim/blob/master/vimrc
+" JavaScript syntax
+" http://www.vim.org/scripts/script.php?script_id=1491
 
-" 获取当前目录
-func! GetPWD()
-    return substitute(getcwd(), "", "", "g")
-endf
-
-" 标签页
-set tabpagemax=15 " 最多15个标签
-set showtabline=2 " 总是显示标签栏
-
-" 关闭遇到错误时的声音提示
-set noerrorbells
-
-" 命令行与状态行
-set cmdheight=1 " 设置命令行的高度
-set laststatus=2 " 始终显示状态行
-set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P] "设置状态栏的信息
+" javaScriptLint.vim
+" http://www.vim.org/scripts/script.php?script_id=2578
 

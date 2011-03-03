@@ -1,0 +1,5 @@
+cd jsl-0.3.0/src/
+make -f Makefile.ref all
+cd Linux_All_DBG.OBJ/
+cp jsl jscpucfg ~/Dropbox/config/vim/jsl/
+
