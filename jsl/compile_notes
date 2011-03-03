@@ -1,3 +1,7 @@
+download it from http://www.javascriptlint.com/download.htm
+then...
+
+tar zvxf jsl-0.3.0-src.tar.gz
 cd jsl-0.3.0/src/
 make -f Makefile.ref all
 cd Linux_All_DBG.OBJ/

@@ -2,6 +2,7 @@ set nocompatible "不使用兼容模式
 autocmd! bufwritepost _vimrc source %
 
 " map 我的常用按键
+let mapleader=","
 map <C-S> <ESC>:w<CR>
 imap <C-S> <ESC>:w<CR>
 map <C-g> <ESC>
@@ -29,8 +30,8 @@ nmap <C-p> :tabprevious<cr>
 nmap <C-n> :tabnext<cr>
 nmap <C-q> ZZ
 
-nmap <C-e> :BufExplorer<cr>
-nmap <C-d> :NERDTreeToggle<cr>
+nmap <leader>u :BufExplorer<cr>
+nmap <leader>p :NERDTreeToggle<cr>
 
 
 
@@ -110,8 +111,21 @@ set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{
 colo herald
 
 " 安装的插件及其设置
+
+" JavaScript syntax
+" http://www.vim.org/scripts/script.php?script_id=1491
+
+" javaScriptLint.vim
+" http://www.vim.org/scripts/script.php?script_id=2578
+
 " VimBall 安装插件必备
 " http://www.vim.org/scripts/script.php?script_id=1502
+
+" Use pathogen to easily modify the runtime path to include all
+" plugins under the ~/.vim/bundle directory
+" http://www.vim.org/scripts/script.php?script_id=2332
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 " delimitMate 自动补完括号等配对
 " http://www.vim.org/scripts/script.php?script_id=2754
@@ -152,10 +166,4 @@ vmap <C-A-E> <Plug>ZenCodingExpandVisual
 " The NERD Tree 方便打开文件
 " http://www.vim.org/scripts/script.php?script_id=1658
 map <F8> :NERDTreeToggle<CR>
-
-" JavaScript syntax
-" http://www.vim.org/scripts/script.php?script_id=1491
-
-" javaScriptLint.vim
-" http://www.vim.org/scripts/script.php?script_id=2578
 
