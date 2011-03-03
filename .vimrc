@@ -3,6 +3,11 @@ autocmd! bufwritepost _vimrc source %
 
 " map 我的常用按键
 let mapleader=","
+nmap <leader>u :BufExplorer<cr>
+nmap <leader>p :NERDTreeToggle<cr>
+" 我使用 Dvorak 键盘布局，因此以上设置对我来说很方便
+" 相当于 Qwerty 键盘上按 wf 和 wr
+
 map <C-S> <ESC>:w<CR>
 imap <C-S> <ESC>:w<CR>
 map <C-g> <ESC>
@@ -29,9 +34,6 @@ nmap <C-t> :tabnew<cr>
 nmap <C-p> :tabprevious<cr>
 nmap <C-n> :tabnext<cr>
 nmap <C-q> ZZ
-
-nmap <leader>u :BufExplorer<cr>
-nmap <leader>p :NERDTreeToggle<cr>
 
 
 
