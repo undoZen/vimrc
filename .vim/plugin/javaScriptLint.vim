@@ -12,11 +12,11 @@
 " Last Modified: May 5, 2009
 
 if !exists("jslint_command")
-  let jslint_command = '/home/yuest/Dropbox/config/vim/jsl/jsl'
+  let jslint_command = '/home/yuest/Dropbox/config/vimsettings/jsl/jsl'
 endif
 
 if !exists("jslint_command_options")
-  let jslint_command_options = '-nofilelisting -nocontext -nosummary -nologo -conf "/home/yuest/Dropbox/config/vim/jsl/jsl.conf" -process'
+  let jslint_command_options = '-nofilelisting -nocontext -nosummary -nologo -conf "/home/yuest/Dropbox/config/vimsettings/jsl/jsl.conf" -process'
 endif
 
 if !exists("jslint_highlight_color")

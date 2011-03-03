@@ -39,7 +39,7 @@ nmap <C-q> ZZ
 
 " Tab键和行尾空格可见
 set list
-set listchars=tab:>-,trail:_
+set listchars=tab:>\ ,trail:_
 
 "set rnu "使用相对行号 (7.3)
 set number "显示行号
@@ -49,7 +49,7 @@ filetype indent on "根据文件类型自动缩进
 filetype plugin on "根据文件类型加载插件
 
 " 使用 4 个空格缩进而不用 Tab
-set tabstop=8
+set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -172,6 +172,18 @@ map <F9> :BufExplorer<CR>
 " http://www.vim.org/scripts/script.php?script_id=2981
 imap <C-A-E> <Plug>ZenCodingExpandNormal
 vmap <C-A-E> <Plug>ZenCodingExpandVisual
+let g:user_zen_settings = {
+\  'indentation' : '    ',
+\  'perl' : {
+\    'aliases' : {
+\      'req' : 'require '
+\    },
+\    'snippets' : {
+\      'use' : "use strict\nuse warnings\n\n",
+\      'warn' : "warn \"|\";",
+\    }
+\  }
+\}
 
 " The NERD Tree 方便打开文件
 " http://www.vim.org/scripts/script.php?script_id=1658
