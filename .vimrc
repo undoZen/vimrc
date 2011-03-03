@@ -155,13 +155,13 @@ let g:vimwiki_menu = ''
 let g:vimwiki_badsyms = ' '
 let g:vimwiki_browsers = ['firefox']
 let wiki1 = {}
-let wiki1.path = 'C:/Users/Yuest/My Dropbox/vimwiki/think'
+let wiki1.path = '/home/yuest/Dropbox/vimwiki/think'
 let wiki2 = {}
-let wiki2.path = 'C:/Users/Yuest/My Dropbox/vimwiki/note'
+let wiki2.path = '/home/yuest/Dropbox/vimwiki/note'
 let wiki2.netest_syntaxes = {'py': 'python', 'js': 'javascript', 'html': 'html', 'css': 'css'}
 let wiki2.auto_export = 1
-let wiki2.html_header = 'C:/Users/Yuest/My Dropbox/vimwiki/note/header.tpl'
-let wiki2.html_footer = 'C:/Users/Yuest/My Dropbox/vimwiki/note/footer.tpl'
+let wiki2.html_header = '/home/yuest/Dropbox/vimwiki/note/header.tpl'
+let wiki2.html_footer = '/home/yuest/Dropbox/vimwiki/note/footer.tpl'
 let g:vimwiki_list = [wiki1, wiki2]
 
 " BufExplorer 方便切换 Buffer
