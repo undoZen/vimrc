@@ -1,17 +1,19 @@
-set nocompatible "²»Ê¹ÓÃ¼æÈİÄ£Ê½
-autocmd! bufwritepost _vimrc source %
+set nocompatible "ä¸ä½¿ç”¨å…¼å®¹æ¨¡å¼
+autocmd! bufwritepost .vimrc source %
 
-" map ÎÒµÄ³£ÓÃ°´¼ü
+" map æˆ‘çš„å¸¸ç”¨æŒ‰é”®
 let mapleader=","
 nmap <leader>u :BufExplorer<cr>
 nmap <leader>p :NERDTreeToggle<cr>
-" ÎÒÊ¹ÓÃ Dvorak ¼üÅÌ²¼¾Ö£¬Òò´ËÒÔÉÏÉèÖÃ¶ÔÎÒÀ´ËµºÜ·½±ã
-" Ïàµ±ÓÚ Qwerty ¼üÅÌÉÏ°´ wf ºÍ wr
+" æˆ‘ä½¿ç”¨ Dvorak é”®ç›˜å¸ƒå±€ï¼Œå› æ­¤ä»¥ä¸Šè®¾ç½®å¯¹æˆ‘æ¥è¯´å¾ˆæ–¹ä¾¿
+" ç›¸å½“äº Qwerty é”®ç›˜ä¸ŠæŒ‰ wf å’Œ wr
 
-map <C-S> <ESC>:w<CR>
-imap <C-S> <ESC>:w<CR>
+map <C-o> <ESC>:w<CR>
+imap <C-o> <ESC>:w<CR>
 map <C-g> <ESC>
 imap <C-g> <ESC>
+cmap <C-g> <ESC>
+imap <C-d> <DEL>
 map <F2> <ESC>:w<CR>
 imap <F2> <ESC>:w<CR>
 "map <f3> :w\|!python %<cr>
@@ -21,9 +23,8 @@ imap <F2> <ESC>:w<CR>
 "map <f5> :w\|!g++-3 -ggdb3 % && cat %.input \| a.exe<cr>
 "map <f6> :w\|!g++-3 -ggdb3 % && a.exe<cr>
 map <F5> :VimwikiAll2HTML<CR><CR>
-nmap <C-o> :e 
 
-" ÒÔÏÂ³­×Ô Leeiio »òÊÜÆäÆô·¢
+" ä»¥ä¸‹æŠ„è‡ª Leeiio æˆ–å—å…¶å¯å‘
 nmap <C-Tab> <C-w><C-w>
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
@@ -37,82 +38,83 @@ nmap <C-q> ZZ
 
 
 
-"set rnu "Ê¹ÓÃÏà¶ÔĞĞºÅ (7.3)
-set number "ÏÔÊ¾ĞĞºÅ
-set ruler "ÔÚÓÒÏÂ½ÇÏÔÊ¾µ±Ç°ĞĞÁĞµÈĞÅÏ¢
-syntax enable "Óï·¨¸ßÁÁÌáÊ¾
-filetype indent on "¸ù¾İÎÄ¼şÀàĞÍ×Ô¶¯Ëõ½ø
-filetype plugin on "¸ù¾İÎÄ¼şÀàĞÍ¼ÓÔØ²å¼ş
+"set rnu "ä½¿ç”¨ç›¸å¯¹è¡Œå· (7.3)
+set number "æ˜¾ç¤ºè¡Œå·
+set ruler "åœ¨å³ä¸‹è§’æ˜¾ç¤ºå½“å‰è¡Œåˆ—ç­‰ä¿¡æ¯
+syntax enable "è¯­æ³•é«˜äº®æç¤º
+filetype indent on "æ ¹æ®æ–‡ä»¶ç±»å‹è‡ªåŠ¨ç¼©è¿›
+filetype plugin on "æ ¹æ®æ–‡ä»¶ç±»å‹åŠ è½½æ’ä»¶
 
-" Ê¹ÓÃ 4 ¸ö¿Õ¸ñËõ½ø¶ø²»ÓÃ Tab
-set tabstop=4
+" ä½¿ç”¨ 4 ä¸ªç©ºæ ¼ç¼©è¿›è€Œä¸ç”¨ Tab
+set tabstop=8
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
 
-set wrap "×Ô¶¯ÕÛĞĞ
-"set linebreak "ÕÛĞĞ²»¶Ï´Ê£¬ÈÃÓ¢ÎÄÔÄ¶Á¸üÊæ·şĞ©
-set nolinebreak "ÕâÊÇÎªÁËÊÊÓ¦ÖĞÎÄ»»ĞĞ
-set backspace=start,indent,eol "ÈÃ Backspace ¼ü¿ÉÒÔÉ¾³ı»»ĞĞ
-set encoding=utf-8
-"language message zh_CN.UTF-8
-set langmenu=en_US.GBK
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-set fileencodings=ucs-bom,utf-8,cp936,gbk "ÖĞÎÄÖ§³Ö
-set hidden "ÈÃÇĞ»» buffer ±£³Ö undo ¼ÇÂ¼
-"set undofile "¿ªÆô³Ö¾Ã»¯³·Ïú (7.3)
-set viminfo='1000,f1,<500,%,h "³Ö¾Ã±£´æÎÄ¼ş¹â±êÎ»ÖÃµÈĞÅÏ¢
-set autochdir "×Ô¶¯¸ü»»¹¤×÷Ä¿Â¼µ½µ±Ç°±à¼­ÎÄ¼şµÄÄ¿Â¼
+if has('win32')
+    language message zh_CN.UTF-8
+    set langmenu=en_US.GBK
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+endif
 
-"¸ßÁÁËÑË÷¡¢½¥½øÊ½ËÑË÷¡¢ºöÂÔ´óĞ¡Ğ´
+
+set wrap "è‡ªåŠ¨æŠ˜è¡Œ
+"set linebreak "æŠ˜è¡Œä¸æ–­è¯ï¼Œè®©è‹±æ–‡é˜…è¯»æ›´èˆ’æœäº›
+set nolinebreak "è¿™æ˜¯ä¸ºäº†é€‚åº”ä¸­æ–‡æ¢è¡Œ
+set backspace=start,indent,eol "è®© Backspace é”®å¯ä»¥åˆ é™¤æ¢è¡Œ
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gbk "ä¸­æ–‡æ”¯æŒ
+set hidden "è®©åˆ‡æ¢ buffer ä¿æŒ undo è®°å½•
+"set undofile "å¼€å¯æŒä¹…åŒ–æ’¤é”€ (7.3)
+set viminfo='1000,f1,<500,%,h "æŒä¹…ä¿å­˜æ–‡ä»¶å…‰æ ‡ä½ç½®ç­‰ä¿¡æ¯
+set autochdir "è‡ªåŠ¨æ›´æ¢å·¥ä½œç›®å½•åˆ°å½“å‰ç¼–è¾‘æ–‡ä»¶çš„ç›®å½•
+
+"é«˜äº®æœç´¢ã€æ¸è¿›å¼æœç´¢ã€å¿½ç•¥å¤§å°å†™
 set hlsearch
 set incsearch
 set ignorecase
+set smartcase
 
-set mouse=nv "ÔÚ Normal ºÍ Visual Ä£Ê½ÏÂÊ¹ÓÃÊó±ê
+set mouse=nv "åœ¨ Normal å’Œ Visual æ¨¡å¼ä¸‹ä½¿ç”¨é¼ æ ‡
 
-"¸ßÁÁËùÔÚĞĞ¡¢ÁĞ
+"é«˜äº®æ‰€åœ¨è¡Œã€åˆ—
 set cursorline
 set cursorcolumn
 
-set foldmethod=indent "ÒÔËõ×Ô¶¯ÕÛµşÏÔÊ¾ÎÄµµ
-set scrolloff=5 "¹â±êÅöµ½µÚÎåĞĞ¡¢µ¹ÊıµÚÎåĞĞÊ±¾ÍÉÏÏÂ¾íÆÁ
-set autoread "Èç¹ûÕıÔÚ±à¼­µÄÎÄ¼şÔÚ´ò¿ªºóÓÖÓĞÆäËû³ÌĞò¸üĞÂ£¬Ôò×Ô¶¯¼ÓÔØ
+set foldmethod=indent "ä»¥ç¼©è‡ªåŠ¨æŠ˜å æ˜¾ç¤ºæ–‡æ¡£
+set scrolloff=5 "å…‰æ ‡ç¢°åˆ°ç¬¬äº”è¡Œã€å€’æ•°ç¬¬äº”è¡Œæ—¶å°±ä¸Šä¸‹å·å±
+set autoread "å¦‚æœæ­£åœ¨ç¼–è¾‘çš„æ–‡ä»¶åœ¨æ‰“å¼€ååˆæœ‰å…¶ä»–ç¨‹åºæ›´æ–°ï¼Œåˆ™è‡ªåŠ¨åŠ è½½
 
-"Emacs Ê½¿ì½İ¼ü
+"Emacs å¼å¿«æ·é”®
 inoremap <C-A> <Home>
 inoremap <C-E> <End>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
-" Leeiio Í¯Ğ¬¶ÔÒÔÏÂÉèÖÃÒàÓĞ¹±Ï×
+" Leeiio ç«¥é‹å¯¹ä»¥ä¸‹è®¾ç½®äº¦æœ‰è´¡çŒ®
 " https://github.com/Leeiio/Vim/blob/master/vimrc
 
-" »ñÈ¡µ±Ç°Ä¿Â¼
+" è·å–å½“å‰ç›®å½•
 func! GetPWD()
     return substitute(getcwd(), "", "", "g")
 endf
 
-" ±êÇ©Ò³
-set tabpagemax=15 " ×î¶à15¸ö±êÇ©
-set showtabline=2 " ×ÜÊÇÏÔÊ¾±êÇ©À¸
-
-" ¹Ø±ÕÓöµ½´íÎóÊ±µÄÉùÒôÌáÊ¾
+" å…³é—­é‡åˆ°é”™è¯¯æ—¶çš„å£°éŸ³æç¤º
 set noerrorbells
 
-" ÃüÁîĞĞÓë×´Ì¬ĞĞ
-set cmdheight=1 " ÉèÖÃÃüÁîĞĞµÄ¸ß¶È
-set laststatus=2 " Ê¼ÖÕÏÔÊ¾×´Ì¬ĞĞ
-set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P] "ÉèÖÃ×´Ì¬À¸µÄĞÅÏ¢
+" å‘½ä»¤è¡Œä¸çŠ¶æ€è¡Œ
+set cmdheight=1 " è®¾ç½®å‘½ä»¤è¡Œçš„é«˜åº¦
+set laststatus=2 " å§‹ç»ˆæ˜¾ç¤ºçŠ¶æ€è¡Œ
+set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P] "è®¾ç½®çŠ¶æ€æ çš„ä¿¡æ¯
 
 
-"ÉèÖÃÅäÉ«·½°¸
+"è®¾ç½®é…è‰²æ–¹æ¡ˆ
 "http://www.h3rald.com/articles/herald-vim-color-scheme/
 colo herald
 
-" °²×°µÄ²å¼ş¼°ÆäÉèÖÃ
+" å®‰è£…çš„æ’ä»¶åŠå…¶è®¾ç½®
 
 " JavaScript syntax
 " http://www.vim.org/scripts/script.php?script_id=1491
@@ -120,7 +122,7 @@ colo herald
 " javaScriptLint.vim
 " http://www.vim.org/scripts/script.php?script_id=2578
 
-" VimBall °²×°²å¼ş±Ø±¸
+" VimBall å®‰è£…æ’ä»¶å¿…å¤‡
 " http://www.vim.org/scripts/script.php?script_id=1502
 
 " Use pathogen to easily modify the runtime path to include all
@@ -129,19 +131,19 @@ colo herald
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-" delimitMate ×Ô¶¯²¹ÍêÀ¨ºÅµÈÅä¶Ô
+" delimitMate è‡ªåŠ¨è¡¥å®Œæ‹¬å·ç­‰é…å¯¹
 " http://www.vim.org/scripts/script.php?script_id=2754
-let delimitMate_expand_space = 1 "Åä¶ÔÄÚ°´¿Õ¸ñ¼üÔÚ¹â±ê×óÓÒ¾ù²åÈë¿Õ¸ñ
-let delimitMate_expand_cr = 1 "Åä¶ÔÄÚ°´»Ø³µ¼ü°Ñ¹â±ê·ÅÔÚÖĞ¼ä¿ÕĞĞ
-" ÔÚ html,yohtml ÎÄ¼şÄÚ°Ù·ÖºÅÒ²×÷ÎªÅä¶Ô×Ô¶¯²åÈë£¬·½±ã jinja2 Ä£°å¿ª·¢
+let delimitMate_expand_space = 1 "é…å¯¹å†…æŒ‰ç©ºæ ¼é”®åœ¨å…‰æ ‡å·¦å³å‡æ’å…¥ç©ºæ ¼
+let delimitMate_expand_cr = 1 "é…å¯¹å†…æŒ‰å›è½¦é”®æŠŠå…‰æ ‡æ”¾åœ¨ä¸­é—´ç©ºè¡Œ
+" åœ¨ html,yohtml æ–‡ä»¶å†…ç™¾åˆ†å·ä¹Ÿä½œä¸ºé…å¯¹è‡ªåŠ¨æ’å…¥ï¼Œæ–¹ä¾¿ jinja2 æ¨¡æ¿å¼€å‘
 au FileType html,yohtml let b:delimitMate_quotes = "\" ' %"
-" ĞŞ¸´ Emacs Ê½±à¼­¿ì½İ¼ü
+" ä¿®å¤ Emacs å¼ç¼–è¾‘å¿«æ·é”®
 imap <C-A> <Plug>delimitMateHome
 imap <C-E> <Plug>delimitMateEnd
 imap <C-F> <Plug>delimitMateRight
 imap <C-B> <Plug>delimitMateLeft
 
-" VimWiki ¼Ç±Ê¼Ç
+" VimWiki è®°ç¬”è®°
 " http://www.vim.org/scripts/script.php?script_id=2226
 let g:vimwiki_menu = ''
 let g:vimwiki_badsyms = ' '
@@ -156,16 +158,16 @@ let wiki2.html_header = 'C:/Users/Yuest/My Dropbox/vimwiki/note/header.tpl'
 let wiki2.html_footer = 'C:/Users/Yuest/My Dropbox/vimwiki/note/footer.tpl'
 let g:vimwiki_list = [wiki1, wiki2]
 
-" BufExplorer ·½±ãÇĞ»» Buffer
+" BufExplorer æ–¹ä¾¿åˆ‡æ¢ Buffer
 " http://www.vim.org/scripts/script.php?script_id=42
 map <F9> :BufExplorer<CR>
 
-" ZenCoding ·½±ãĞ´HTML
+" ZenCoding æ–¹ä¾¿å†™HTML
 " http://www.vim.org/scripts/script.php?script_id=2981
 imap <C-A-E> <Plug>ZenCodingExpandNormal
 vmap <C-A-E> <Plug>ZenCodingExpandVisual
 
-" The NERD Tree ·½±ã´ò¿ªÎÄ¼ş
+" The NERD Tree æ–¹ä¾¿æ‰“å¼€æ–‡ä»¶
 " http://www.vim.org/scripts/script.php?script_id=1658
 map <F8> :NERDTreeToggle<CR>
 
