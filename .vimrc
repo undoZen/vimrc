@@ -8,14 +8,15 @@ nmap <leader>p :NERDTreeToggle<cr>
 " 我使用 Dvorak 键盘布局，因此以上设置对我来说很方便
 " 相当于 Qwerty 键盘上按 wf 和 wr
 
-map <C-o> <ESC>:w<CR>
-imap <C-o> <ESC>:w<CR>
 map <C-g> <ESC>
 imap <C-g> <ESC>
 cmap <C-g> <ESC>
 imap <C-d> <DEL>
+map <C-o> <ESC>:w<CR>
+imap <C-o> <ESC>:w<CR>
 map <F2> <ESC>:w<CR>
 imap <F2> <ESC>:w<CR>
+cmap w!! w !sudo tee % >/dev/null
 "map <f3> :w\|!python %<cr>
 "map <f4> :w\|!python -i %<cr>
 "map <f3> :w\|!gcc-3 -ggdb3 % && cat %.input \| a.exe<cr>
@@ -23,8 +24,8 @@ imap <F2> <ESC>:w<CR>
 "map <f5> :w\|!g++-3 -ggdb3 % && cat %.input \| a.exe<cr>
 "map <f6> :w\|!g++-3 -ggdb3 % && a.exe<cr>
 map <F5> :VimwikiAll2HTML<CR><CR>
+set pastetoggle=<F7> "粘贴代码用
 
-" 以下抄自 Leeiio 或受其启发
 nmap <C-Tab> <C-w><C-w>
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
@@ -36,7 +37,9 @@ nmap <C-p> :tabprevious<cr>
 nmap <C-n> :tabnext<cr>
 nmap <C-q> ZZ
 
-
+" Tab键和行尾空格可见
+set list
+set listchars=tab:>-,trail:_
 
 "set rnu "使用相对行号 (7.3)
 set number "显示行号
@@ -76,6 +79,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+" 按空格或,/取消搜索高亮
+nmap <silent> <leader>/ :nohlsearch<CR>
+noremap <silent> <Space> :silent noh<CR> 
 
 set mouse=nv "在 Normal 和 Visual 模式下使用鼠标
 
