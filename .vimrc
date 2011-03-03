@@ -125,6 +125,12 @@ colo herald
 " JavaScript syntax
 " http://www.vim.org/scripts/script.php?script_id=1491
 
+" Better JavaScript Indentation
+" 这是经我使用后感觉最好的 JavaScript Indent 文件。对以匿名函数作参数都能
+" 很好地缩进。
+" 包括了上面的 JavaScript syntax 0.7.7 版本
+" http://vim.sourceforge.net/scripts/script.php?script_id=2765
+
 " javaScriptLint.vim
 " http://www.vim.org/scripts/script.php?script_id=2578
 
@@ -189,3 +195,5 @@ let g:user_zen_settings = {
 " http://www.vim.org/scripts/script.php?script_id=1658
 map <F8> :NERDTreeToggle<CR>
 
+" HTML5 syntax
+" http://www.vim.org/scripts/script.php?script_id=3232
