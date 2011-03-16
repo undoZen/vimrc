@@ -17,7 +17,8 @@ imap <C-o> <ESC>:w<CR>
 map <F2> <ESC>:w<CR>
 imap <F2> <ESC>:w<CR>
 cmap w!! w !sudo tee % >/dev/null
-"map <f3> :w\|!python %<cr>
+map <f3> :w\|!node %<cr>
+map <f4> :w\|!python %<cr>
 "map <f4> :w\|!python -i %<cr>
 "map <f3> :w\|!gcc-3 -ggdb3 % && cat %.input \| a.exe<cr>
 "map <f4> :w\|!gcc-3 -ggdb3 % && a.exe<cr>
@@ -197,3 +198,6 @@ map <F8> :NERDTreeToggle<CR>
 
 " HTML5 syntax
 " http://www.vim.org/scripts/script.php?script_id=3232
+
+" Markdown
+" https://github.com/plasticboy/vim-markdown
