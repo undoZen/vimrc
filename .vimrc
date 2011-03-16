@@ -201,3 +201,5 @@ map <F8> :NERDTreeToggle<CR>
 
 " Markdown
 " https://github.com/plasticboy/vim-markdown
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+
