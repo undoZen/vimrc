@@ -207,3 +207,7 @@ map <F8> :NERDTreeToggle<CR>
 " https://github.com/plasticboy/vim-markdown
 au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 
+" vim-jade
+" https://github.com/digitaltoad/vim-jade
+" Jade
+autocmd BufNewFile,BufReadPost *.jade set filetype=jade
