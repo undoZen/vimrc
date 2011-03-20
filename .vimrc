@@ -24,7 +24,8 @@ map <f4> :w\|!python %<cr>
 "map <f4> :w\|!gcc-3 -ggdb3 % && a.exe<cr>
 "map <f5> :w\|!g++-3 -ggdb3 % && cat %.input \| a.exe<cr>
 "map <f6> :w\|!g++-3 -ggdb3 % && a.exe<cr>
-map <F5> :VimwikiAll2HTML<CR><CR>
+"map <F5> :VimwikiAll2HTML<CR><CR>
+map <F5> :!markdown %<CR>
 set pastetoggle=<F7> "粘贴代码用
 
 nmap <C-Tab> <C-w><C-w>
@@ -100,6 +101,9 @@ inoremap <C-E> <End>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
+au BufRead,BufNewFile *.j2 set filetype=html
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
 
@@ -148,8 +152,8 @@ call pathogen#runtime_append_all_bundles()
 " http://www.vim.org/scripts/script.php?script_id=2754
 let delimitMate_expand_space = 1 "配对内按空格键在光标左右均插入空格
 let delimitMate_expand_cr = 1 "配对内按回车键把光标放在中间空行
-" 在 html,yohtml 文件内百分号也作为配对自动插入，方便 jinja2 模板开发
-au FileType html,yohtml let b:delimitMate_quotes = "\" ' %"
+" 在 html,j2 文件内百分号也作为配对自动插入，方便 jinja2 模板开发
+au FileType html,j2 let b:delimitMate_quotes = "\" ' %"
 " 修复 Emacs 式编辑快捷键
 imap <C-A> <Plug>delimitMateHome
 imap <C-E> <Plug>delimitMateEnd
