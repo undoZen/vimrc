@@ -3,10 +3,11 @@ autocmd! bufwritepost .vimrc source %
 
 " map 我的常用按键
 let mapleader=","
-nmap <leader>u :BufExplorer<cr>
-nmap <leader>p :NERDTreeToggle<cr>
+nmap <c-e> :BufExplorer<cr>
+nmap <c-d> :NERDTreeToggle<cr>
 " 我使用 Dvorak 键盘布局，因此以上设置对我来说很方便
 " 相当于 Qwerty 键盘上按 wf 和 wr
+" 还是换成 c-e, c-d 方便
 
 map <C-g> <ESC>
 imap <C-g> <ESC>
@@ -25,7 +26,7 @@ map <f4> :w\|!python %<cr>
 "map <f5> :w\|!g++-3 -ggdb3 % && cat %.input \| a.exe<cr>
 "map <f6> :w\|!g++-3 -ggdb3 % && a.exe<cr>
 "map <F5> :VimwikiAll2HTML<CR><CR>
-map <F5> :!markdown %<CR>
+map <F5> :!bash /home/yuest/y/.build.sh<CR>
 set pastetoggle=<F7> "粘贴代码用
 
 nmap <C-Tab> <C-w><C-w>
@@ -102,7 +103,7 @@ inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2 set filetype=html
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+"autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
@@ -211,3 +212,8 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 " https://github.com/digitaltoad/vim-jade
 " Jade
 autocmd BufNewFile,BufReadPost *.jade set filetype=jade
+" Stylus
+" https://github.com/wavded/vim-stylus
+autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
+autocmd BufNewFile,BufReadPost *.stylus set filetype=stylus
+au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
