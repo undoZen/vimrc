@@ -102,7 +102,7 @@ inoremap <C-E> <End>
 inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
-au BufRead,BufNewFile *.j2 set filetype=html
+au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 "autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
