@@ -1884,6 +1884,7 @@ let s:zen_settings = {
 \            'script:mt': [{'type': 'text/micro-template'},{'id': '|'}],
 \            'script:t': [{'type': 'text/template'},{'id': '|'}],
 \            'script:m': [{'type': 'text/mustache-template'},{'id': '|'}],
+\            'script:h': [{'type': 'text/html'},{'id': '|'}],
 \            'img': [{'src': ''}, {'alt': ''}],
 \            'iframe': [{'src': ''}, {'frameborder': '0'}],
 \            'embed': [{'src': ''}, {'type': ''}],
