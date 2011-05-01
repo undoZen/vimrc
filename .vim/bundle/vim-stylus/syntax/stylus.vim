@@ -28,6 +28,8 @@ syn match cssCommonAttr contained "\<column-rule-\(color\|width\|style\)\>"
 syn match cssCommonAttr contained "\<column-break-\(after\|before\)\>"
 syn match cssBoxProp "\<border-\(image\|radius\)\=\>" contained
 syn match cssBoxProp "\<\(box-shadow\)\>" contained
+syn match cssUIProp contained "\<\(transform\)\>"
+syn match cssUIProp contained "\<\(transition\)\>"
 syn keyword cssColorProp contained opacity
 syn match cssTextAttr contained "\<text-shadow\|text-overflow\|word-wrap\>"
 syn match cssColorProp contained "\<background\(-\(origin\|clip\|size\)\)\="
@@ -45,13 +47,14 @@ syn match cssBoxProp contained "\<border-\(\(top-left\|top-right\|bottom-right\|
 " end CSS3 support
 
 syn case ignore
+syn region cssInclude start="@import" end="\n" contains=cssComment,cssURL,cssUnicodeEscape,cssMediaType
 
-syn cluster stylusCssAttributes contains=css.*Attr,stylusComment,cssValue.*,cssColor,cssURL,sassDefault,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,cssRenderProp
+syn cluster stylusCssSelectors contains=cssTagName,cssSelector.*,cssIdentifier,cssAttributeSelector,cssPseudo.*,cssClassName
+syn cluster stylusCssAttributes contains=css.*Attr,stylusComment,cssValue.*,cssColor,cssURL,cssImportant,cssError,cssStringQ,cssStringQQ,cssFunction,cssUnicodeEscape,cssRenderProp
 
 syn region stylusDefinition matchgroup=cssBraces start="{" end="}" contains=TOP
-syn match stylusProperty "\%([{};]\s*\|^\)\@<=\%([[:alnum:]-]\|#{[^{}]*}\)\+:" contains=css.*Prop skipwhite nextgroup=stylusCssAttribute contained containedin=stylusDefinition
-
-syn match stylusProperty "^\s*\zs\s\%(\%([[:alnum:]-]\|#{[^{}]*}\)\+:\?\|:[[:alnum:]-]\+\)"hs=s+1 contains=css.*Prop skipwhite nextgroup=stylusCssAttribute
+" syn match stylusProperty "\%([{};]\s*\|^\)\@<=\%([[:alnum:]-]\|#{[^{}]*}\)\+:" contains=css.*Prop skipwhite nextgroup=stylusCssAttribute contained containedin=stylusDefinition
+syn match stylusProperty "^\s*\%([[:alnum:]-]\+\)" contains=css.*Prop skipwhite nextgroup=stylusCssAttribute
 syn match stylusVariableAssignment "\%([[:alnum:]_-]\+\s*\)\@<==" nextgroup=stylusCssAttribute,stylusVariable skipwhite
 
 syn match stylusCssAttribute +\%("\%([^"]\|\\"\)*"\|'\%([^']\|\\'\)*'\|#{[^{}]*}\|[^{};]\)*+ contained contains=@stylusCssAttributes,stylusFunction,stylusVariable,stylusControl,stylusUserFunction
@@ -82,7 +85,6 @@ hi def link stylusVariable              Identifier
 hi def link stylusControl               PreProc
 hi def link stylusUserFunction          PreProc
 hi def link stylusFunction              Function
-hi def link sassInterpolationDelimiter  Delimiter
 
 let b:current_syntax = "stylus"
 
