@@ -1,6 +1,6 @@
 " File:         javascriptLint.vim
 " Author:       Joe Stelmach (joe@zenbe.com)
-" Version:      0.1
+" Version:      0.2
 " Description:  javascriptLint.vim allows the JavaScript Lint (jsl) program 
 "               from http://www.javascriptlint.com/ to be tightly integrated 
 "               with vim.  The contents of a javascript file will be passed 
@@ -12,11 +12,11 @@
 " Last Modified: May 5, 2009
 
 if !exists("jslint_command")
-  let jslint_command = '/home/yuest/Dropbox/config/vimsettings/jsl/jsl'
+  let jslint_command = 'jsl'
 endif
 
 if !exists("jslint_command_options")
-  let jslint_command_options = '-nofilelisting -nocontext -nosummary -nologo -conf "/home/yuest/Dropbox/config/vimsettings/jsl/jsl.conf" -process'
+  let jslint_command_options = '-nofilelisting -nocontext -nosummary -nologo -process'
 endif
 
 if !exists("jslint_highlight_color")
@@ -122,4 +122,3 @@ function s:ClearCursorLineColor()
     endif
   endif
 endfunction
-
