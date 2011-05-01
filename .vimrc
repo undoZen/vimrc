@@ -151,15 +151,15 @@ call pathogen#runtime_append_all_bundles()
 
 " delimitMate 自动补完括号等配对
 " http://www.vim.org/scripts/script.php?script_id=2754
-let delimitMate_expand_space = 1 "配对内按空格键在光标左右均插入空格
-let delimitMate_expand_cr = 1 "配对内按回车键把光标放在中间空行
+"let delimitMate_expand_space = 1 "配对内按空格键在光标左右均插入空格
+"let delimitMate_expand_cr = 1 "配对内按回车键把光标放在中间空行
 " 在 html,j2 文件内百分号也作为配对自动插入，方便 jinja2 模板开发
-au FileType html,j2 let b:delimitMate_quotes = "\" ' %"
+"au FileType html,j2 let b:delimitMate_quotes = "\" ' %"
 " 修复 Emacs 式编辑快捷键
-imap <C-A> <Plug>delimitMateHome
-imap <C-E> <Plug>delimitMateEnd
-imap <C-F> <Plug>delimitMateRight
-imap <C-B> <Plug>delimitMateLeft
+imap <C-A> <Home> " <Plug>delimitMateHome
+imap <C-E> <End>" <Plug>delimitMateEnd
+imap <C-F> <Right>" <Plug>delimitMateRight
+imap <C-B> <Left>" <Plug>delimitMateLeft
 
 " VimWiki 记笔记
 " http://www.vim.org/scripts/script.php?script_id=2226
