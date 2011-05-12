@@ -26,7 +26,8 @@ map <f4> :w\|!python -i %<cr>
 "map <f5> :w\|!g++-3 -ggdb3 % && cat %.input \| a.exe<cr>
 "map <f6> :w\|!g++-3 -ggdb3 % && a.exe<cr>
 "map <F5> :VimwikiAll2HTML<CR><CR>
-map <F5> :!bash /home/yuest/y/.build.sh<CR>
+map <f5> :w\|!gccgo % && ./a.out<cr>
+map <F6> :!bash /home/yuest/y/.build.sh<CR>
 set pastetoggle=<F7> "粘贴代码用
 
 nmap <C-Tab> <C-w><C-w>
@@ -51,10 +52,10 @@ syntax enable "语法高亮提示
 filetype indent on "根据文件类型自动缩进
 filetype plugin on "根据文件类型加载插件
 
-" 使用 4 个空格缩进而不用 Tab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+" 使用 2 个空格缩进而不用 Tab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set smarttab
 
@@ -103,7 +104,7 @@ inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
-"autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
@@ -156,10 +157,14 @@ call pathogen#runtime_append_all_bundles()
 " 在 html,j2 文件内百分号也作为配对自动插入，方便 jinja2 模板开发
 "au FileType html,j2 let b:delimitMate_quotes = "\" ' %"
 " 修复 Emacs 式编辑快捷键
-imap <C-A> <Home> " <Plug>delimitMateHome
-imap <C-E> <End>" <Plug>delimitMateEnd
-imap <C-F> <Right>" <Plug>delimitMateRight
-imap <C-B> <Left>" <Plug>delimitMateLeft
+imap <C-A> <Home>
+" <Plug>delimitMateHome
+imap <C-E> <End>
+" <Plug>delimitMateEnd
+imap <C-F> <Right>
+" <Plug>delimitMateRight
+imap <C-B> <Left>
+" <Plug>delimitMateLeft
 
 " VimWiki 记笔记
 " http://www.vim.org/scripts/script.php?script_id=2226
@@ -217,3 +222,7 @@ autocmd BufNewFile,BufReadPost *.jade set filetype=jade
 autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
 autocmd BufNewFile,BufReadPost *.stylus set filetype=stylus
 au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
+
+" Go Language Support
+" http://golang.org/misc/vim/
+au BufRead,BufNewFile *.go set filetype=go
