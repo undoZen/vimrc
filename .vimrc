@@ -13,8 +13,7 @@ map <C-g> <ESC>
 imap <C-g> <ESC>
 cmap <C-g> <ESC>
 imap <C-d> <DEL>
-map <C-o> <ESC>:w<CR>
-imap <C-o> <ESC>:w<CR>
+map <C-o> <ESC>:e<CR>
 map <F2> <ESC>:w<CR>
 imap <F2> <ESC>:w<CR>
 cmap w!! w !sudo tee % >/dev/null
@@ -104,7 +103,7 @@ inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
-autocmd FileType html,javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+"autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
@@ -157,14 +156,10 @@ call pathogen#runtime_append_all_bundles()
 " 在 html,j2 文件内百分号也作为配对自动插入，方便 jinja2 模板开发
 "au FileType html,j2 let b:delimitMate_quotes = "\" ' %"
 " 修复 Emacs 式编辑快捷键
-imap <C-A> <Home>
-" <Plug>delimitMateHome
-imap <C-E> <End>
-" <Plug>delimitMateEnd
-imap <C-F> <Right>
-" <Plug>delimitMateRight
-imap <C-B> <Left>
-" <Plug>delimitMateLeft
+"imap <C-A> <Plug>delimitMateHome
+"imap <C-E> <Plug>delimitMateEnd
+"imap <C-F> <Plug>delimitMateRight
+"imap <C-B> <Plug>delimitMateLeft
 
 " VimWiki 记笔记
 " http://www.vim.org/scripts/script.php?script_id=2226
