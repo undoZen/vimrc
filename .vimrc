@@ -221,3 +221,6 @@ au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
 " Go Language Support
 " http://golang.org/misc/vim/
 au BufRead,BufNewFile *.go set filetype=go
+
+" AutoClose
+" http://www.vim.org/scripts/script.php?script_id=2009
