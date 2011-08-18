@@ -9,9 +9,8 @@ nmap <c-d> :NERDTreeToggle<cr>
 " 相当于 Qwerty 键盘上按 wf 和 wr
 " 还是换成 c-e, c-d 方便
 
-map <C-g> <ESC>
-imap <C-g> <ESC>
-cmap <C-g> <ESC>
+map <C-g> <ESC>:w<CR>
+imap <C-g> <ESC>:w<CR>
 imap <C-d> <DEL>
 map <C-o> <ESC>:e<CR>
 map <F2> <ESC>:w<CR>
@@ -51,10 +50,10 @@ syntax enable "语法高亮提示
 filetype indent on "根据文件类型自动缩进
 filetype plugin on "根据文件类型加载插件
 
-" 使用 2 个空格缩进而不用 Tab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+" 使用 4 个空格缩进而不用 Tab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set smarttab
 
