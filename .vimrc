@@ -227,4 +227,3 @@ au BufRead,BufNewFile *.go set filetype=go
 "
 " EasyMotion
 " https://github.com/Lokaltog/vim-easymotion
-let g:EasyMotion_leader_key = '<Leader>u'
