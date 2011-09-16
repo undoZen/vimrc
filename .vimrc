@@ -102,6 +102,7 @@ inoremap <C-F> <Right>
 inoremap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
+au BufRead,BufNewFile *.k set filetype=javascript
 "autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
@@ -223,3 +224,7 @@ au BufRead,BufNewFile *.go set filetype=go
 
 " AutoClose
 " http://www.vim.org/scripts/script.php?script_id=2009
+"
+" EasyMotion
+" https://github.com/Lokaltog/vim-easymotion
+let g:EasyMotion_leader_key = '<Leader>u'
