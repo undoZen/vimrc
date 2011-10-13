@@ -227,3 +227,6 @@ au BufRead,BufNewFile *.go set filetype=go
 "
 " EasyMotion
 " https://github.com/Lokaltog/vim-easymotion
+"
+" vim-less
+" https://github.com/groenewege/vim-less
