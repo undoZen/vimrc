@@ -146,8 +146,7 @@ colo herald
 " Use pathogen to easily modify the runtime path to include all
 " plugins under the ~/.vim/bundle directory
 " http://www.vim.org/scripts/script.php?script_id=2332
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 " delimitMate 自动补完括号等配对
 " http://www.vim.org/scripts/script.php?script_id=2754
