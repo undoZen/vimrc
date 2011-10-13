@@ -592,6 +592,7 @@ function! s:zen_getFileType()
   let type = &ft
   if type == 'xslt' | let type = 'xsl' | endif
   if type == 'stylus' | let type = 'css' | endif
+  if type == 'less' | let type = 'css' | endif
   if synIDattr(synID(line("."), col("."), 1), "name") =~ '^css'
     let type = 'css'
   endif
