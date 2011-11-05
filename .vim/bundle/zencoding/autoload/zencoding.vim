@@ -1804,6 +1804,12 @@ let s:zen_settings = {
 \            'wid': 'widows: |;'
 \        }
 \    },
+\    'javascript': {
+\        'snippets': {
+\            'dfn': "define( function( require, exports, module ) {\n\t${child}|\n});",
+\            'if': "if (|) {\n\t|\n}",
+\        },
+\    },
 \    'html': {
 \        'snippets': {
 \            'cc:ie6': "<!--[if lte IE 6]>\n\t${child}|\n<![endif]-->",

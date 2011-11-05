@@ -229,3 +229,8 @@ au BufRead,BufNewFile *.go set filetype=go
 "
 " vim-less
 " https://github.com/groenewege/vim-less
+" 
+" vim-colors-solarized
+" https://github.com/altercation/vim-colors-solarized
+set background=dark
+colorscheme solarized

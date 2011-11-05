@@ -1,5 +1,5 @@
 if has("unix") && !has('gui_macvim')
-    set guifont=Liberation\ Mono\ 10
+    set guifont=Ubuntu\ Mono\ 10
     set guifontwide=WenQuanYi\ Zen\ Hei\ 10
 endif
 
