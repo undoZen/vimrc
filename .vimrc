@@ -103,7 +103,7 @@ inoremap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 au BufRead,BufNewFile *.k set filetype=javascript
-"autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,jade,javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
