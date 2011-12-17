@@ -103,7 +103,7 @@ inoremap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 au BufRead,BufNewFile *.k set filetype=javascript
-autocmd FileType html,jade,javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
@@ -181,7 +181,7 @@ map <F9> :BufExplorer<CR>
 
 " ZenCoding 方便写HTML
 " http://www.vim.org/scripts/script.php?script_id=2981
-let g:user_zen_leader_key = '<c-i>'
+"let g:user_zen_leader_key = '<c-i>'
 let g:user_zen_settings = {
 \  'indentation' : '    ',
 \  'perl' : {
