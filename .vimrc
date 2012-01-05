@@ -43,7 +43,9 @@ nmap <C-q> ZZ
 set list
 set listchars=tab:>\ ,trail:_
 
-"set rnu "使用相对行号 (7.3)
+if v:version >= 703
+    set rnu "使用相对行号 (7.3)
+endif
 set number "显示行号
 set ruler "在右下角显示当前行列等信息
 syntax enable "语法高亮提示
@@ -103,7 +105,7 @@ inoremap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 au BufRead,BufNewFile *.k set filetype=javascript
-autocmd FileType jade setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,jade,javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
@@ -119,7 +121,7 @@ set noerrorbells
 " 命令行与状态行
 set cmdheight=1 " 设置命令行的高度
 set laststatus=2 " 始终显示状态行
-set stl=\ [File]\ %F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P] "设置状态栏的信息
+set stl=\ [File]\ %f%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w\ \ [PWD]\ %r%{GetPWD()}%h\ %=\ [Line]%l/%L\ %=\[%P] "设置状态栏的信息
 
 
 "设置配色方案
@@ -214,7 +216,7 @@ autocmd BufNewFile,BufReadPost *.jade set filetype=jade
 " https://github.com/wavded/vim-stylus
 autocmd BufNewFile,BufReadPost *.styl set filetype=stylus
 autocmd BufNewFile,BufReadPost *.stylus set filetype=stylus
-au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
+"au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
 
 " Go Language Support
 " http://golang.org/misc/vim/
