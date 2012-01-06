@@ -235,3 +235,8 @@ au BufRead,BufNewFile *.go set filetype=go
 " https://github.com/altercation/vim-colors-solarized
 set background=dark
 colorscheme solarized
+
+" syntastic
+" https://github.com/scrooloose/syntastic
+let g:syntastic_auto_loc_list=1
+let g:syntastic_javascript_jsl_conf='-conf "/home/yuest/Dropbox/config/vimsettings/jsl/jsl.conf"'
