@@ -8,4 +8,4 @@ usage
 3. `cd vimsettings`
 4. `git submodule init`
 5. `git submodule update`
-6. `echo "export PATH=\$HOME/Dropbox/config/vimsettings/jsl:\$PATH" >> ~/.bashrc`
+6. download and compile jsl
