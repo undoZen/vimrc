@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "easymotion"]
+	path = easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
