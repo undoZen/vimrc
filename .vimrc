@@ -240,5 +240,5 @@ colorscheme solarized
 " syntastic
 " https://github.com/scrooloose/syntastic
 let g:syntastic_auto_loc_list=1
-let g:syntastic_javascript_checker='/home/yuest/SparkleShare/vimsettings/jsl/jsl'
-let g:syntastic_javascript_jsl_conf='-conf "/home/yuest/SparkleShare/vimsettings/jsl/jsl.conf"'
+let g:syntastic_javascript_checker='jsl'
+let g:syntastic_javascript_jsl_conf='-conf "$SS/vimsettings/jsl/jsl.conf"'
