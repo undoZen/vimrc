@@ -106,7 +106,7 @@ inoremap <C-B> <Left>
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 au BufRead,BufNewFile *.k set filetype=javascript
 au BufRead,BufNewFile *.sibilant set filetype=scheme
-autocmd FileType html,jade,javascript,scheme setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,jade,javascript,scheme,coffee setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Leeiio 童鞋对以下设置亦有贡献
 " https://github.com/Leeiio/Vim/blob/master/vimrc
