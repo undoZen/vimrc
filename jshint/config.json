@@ -31,7 +31,7 @@
     "dojo": false,
 
     // Custom predefined globals.
-    "predef": ["SNB", "exports"],
+    "predef": ["SNB"],
 
 
     // Development
@@ -145,9 +145,5 @@
     "white": false,
     // Specify indentation.
     "indent": 2
-
-    //additional config
-    //allow redefinite exports
-  , "exports": true
 }
 
