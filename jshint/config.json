@@ -55,7 +55,7 @@
     // The Good Parts
 
     // Whether automatic semicolon insertion should be allowed.
-    "asi": false,
+    "asi": true,
     // Whether line breaks should not be checked, e.g. `return [\n] x`.
     "laxbreak": false,
     // Whether bitwise operators (&, |, ^, etc.) should be forbidden.
