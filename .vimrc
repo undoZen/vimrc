@@ -54,9 +54,9 @@ filetype plugin on "根据文件类型加载插件
 
 " 使用 4 个空格缩进而不用 Tab
 set tabstop=4
-"set softtabstop=4
+set softtabstop=4
 set shiftwidth=4
-"set expandtab
+set expandtab
 set smarttab
 
 if has('win32')
