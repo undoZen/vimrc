@@ -1,5 +1,6 @@
 set nocompatible "不使用兼容模式
 autocmd! bufwritepost .vimrc source %
+autocmd! bufwritepost .vimrc source ~/.gvimrc
 
 " map 我的常用按键
 let mapleader=","
