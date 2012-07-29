@@ -31,7 +31,7 @@
     "dojo": false,
 
     // Custom predefined globals.
-    "predef": ["SNB"],
+    "predef": ["SNB", "exports"],
 
 
     // Development
