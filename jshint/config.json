@@ -22,7 +22,7 @@
     "wsh": false,
 
     // Whether jQuery globals should be predefined.
-    "jquery": false,
+    "jquery": true,
     // Whether Prototype and Scriptaculous globals should be predefined.
     "prototypejs": false,
     // Whether MooTools globals should be predefined.
@@ -31,7 +31,7 @@
     "dojo": false,
 
     // Custom predefined globals.
-    "predef": [],
+    "predef": ['SNB'],
 
 
     // Development
@@ -39,13 +39,13 @@
     // Whether debugger statements should be allowed.
     "debug": false,
     // Whether logging globals should be predefined (console, alert, etc.).
-    "devel": false,
+    "devel": true,
 
 
     // ECMAScript 5
 
     // Whether ES5 syntax should be allowed.
-    "es5": false,
+    "es5": true,
     // Whether the "use strict"; pragma should be required.
     "strict": false,
     // Whether global "use strict"; should be allowed (also enables strict).
@@ -144,6 +144,6 @@
     // Whether strict whitespace rules apply.
     "white": false,
     // Specify indentation.
-    "indent": 4
+    "indent": 2
 }
 
