@@ -242,4 +242,4 @@ colorscheme solarized
 " https://github.com/scrooloose/syntastic
 let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_checker='jshint'
-let g:syntastic_javascript_jshint_conf='--config "$SS/vimsettings/jshint/config.json"'
+let g:syntastic_javascript_jshint_conf='$SS/vimsettings/jshint/config.json'
