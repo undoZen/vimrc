@@ -236,11 +236,11 @@ au BufRead,BufNewFile *.go set filetype=go
 " 
 " vim-colors-solarized
 " https://github.com/altercation/vim-colors-solarized
-set background=dark
-colorscheme solarized
+"set background=dark
+"colorscheme solarized
 
 " syntastic
 " https://github.com/scrooloose/syntastic
-let g:syntastic_auto_loc_list=1
+" let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_checker='jshint'
-let g:syntastic_javascript_jshint_conf='$SS/vimsettings/jshint/config.json'
+let g:syntastic_javascript_jshint_conf='$DCONF/vimsettings/jshint/config.json'
