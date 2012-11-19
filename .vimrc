@@ -1,12 +1,9 @@
 set nocompatible
-autocmd! bufwritepost .vimrc source % " 自动刷新
+autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 " 关闭遇到错误时的声音提示
 set noerrorbells
 
-filetype off " required for vundle
-
 colo torte " enough
-syntax off " not needed
 
 set number " 显示行号
 if v:version >= 703
@@ -29,7 +26,7 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 
 " 方便切换 tabs
-nmap <C-t> :tabnew<cr>
+" nmap <C-t> :tabnew<cr>
 nmap <C-p> :tabprevious<cr>
 nmap <C-n> :tabnext<cr>
 
@@ -92,6 +89,8 @@ set cmdheight=1 " 设置命令行的高度
 set laststatus=2 " 始终显示状态行
 set stl=%F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w%h\ %=\ %l/%L,%c\ %m "设置状态栏的信息
 
+filetype off " required for vundle
+
 set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
 
@@ -112,7 +111,8 @@ set rtp+=~/.vim/bundle/vundle/
  " Bundle 'git://git.wincent.com/command-t.git'
  " ...
 
- filetype plugin indent on     " required!
+ filetype indent on     " required!
+ filetype plugin on     " required!
  "
  " Brief help
  " :BundleList          - list configured bundles
@@ -125,7 +125,9 @@ set rtp+=~/.vim/bundle/vundle/
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
-map <F8> :NERDTreeToggle<CR>
+nmap <C-T> :NERDTreeToggle<CR>
+Bundle 'c9s/bufexplorer'
+nmap <C-E> :BufExplorer<CR>
 
 Bundle 'Raimondi/delimitMate'
 " 修复 Emacs 式编辑快捷键
@@ -133,3 +135,18 @@ imap <C-A> <Plug>delimitMateHome
 imap <C-E> <Plug>delimitMateEnd
 imap <C-F> <Plug>delimitMateRight
 imap <C-B> <Plug>delimitMateLeft
+let g:delimitMate_autoclose=1
+let g:delimitMate_expand_cr=1
+let g:delimitMate_expand_space=1
+
+Bundle 'groenewege/vim-less'
+autocmd BufNewFile,BufReadPost *.less set filetype=less
+Bundle 'digitaltoad/vim-jade'
+autocmd BufNewFile,BufReadPost *.jade set filetype=jade
+Bundle 'plasticboy/vim-markdown'
+au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+Bundle 'wavded/vim-stylus'
+autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
+"au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
+
+syntax off " not needed
