@@ -103,7 +103,6 @@ set rtp+=~/.vim/bundle/vundle/
  "
  " original repos on github
  " Bundle 'tpope/vim-fugitive'
- " Bundle 'Lokaltog/vim-easymotion'
  " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
  " Bundle 'tpope/vim-rails.git'
  " vim-scripts repos
@@ -123,3 +122,8 @@ set rtp+=~/.vim/bundle/vundle/
  "
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
+
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/nerdtree'
+map <F8> :NERDTreeToggle<CR>
+
