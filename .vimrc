@@ -46,10 +46,10 @@ map <f5> :w\|!gccgo % && ./a.out<cr>
 set pastetoggle=<F7> " 粘贴代码可能有用
 
 " Emacs 式快捷键
-inoremap <C-A> <Home>
-inoremap <C-E> <End>
-inoremap <C-F> <Right>
-inoremap <C-B> <Left>
+imap <C-A> <Home>
+imap <C-E> <End>
+imap <C-F> <Right>
+imap <C-B> <Left>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 
@@ -127,3 +127,9 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
 map <F8> :NERDTreeToggle<CR>
 
+Bundle 'Raimondi/delimitMate'
+" 修复 Emacs 式编辑快捷键
+imap <C-A> <Plug>delimitMateHome
+imap <C-E> <Plug>delimitMateEnd
+imap <C-F> <Plug>delimitMateRight
+imap <C-B> <Plug>delimitMateLeft
