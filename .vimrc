@@ -1,4 +1,5 @@
 set nocompatible
+let mapleader=","
 autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 " 关闭遇到错误时的声音提示
 set noerrorbells
@@ -7,7 +8,8 @@ colo torte " enough
 
 set number " 显示行号
 if v:version >= 703
-  set rnu " VIM 7.3 以上使用相对行号
+  " set rnu " VIM 7.3 以上使用相对行号
+  set nonumber  relativenumber " 奇怪要这样才能确保用上相对行号
 endif
 set ruler " 在右下角显示当前行列等信息
 
