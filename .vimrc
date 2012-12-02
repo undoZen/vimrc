@@ -50,6 +50,9 @@ imap <C-E> <End>
 imap <C-F> <Right>
 imap <C-B> <Left>
 
+" normal 模式按 esc 存储
+nmap <ESC> :w<CR>
+
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 
 " Tab键和行尾空格可见
