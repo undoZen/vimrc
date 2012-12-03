@@ -154,4 +154,5 @@ Bundle 'wavded/vim-stylus'
 autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 "au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
 
-syntax off " not needed
+syntax on
+colo reloaded
