@@ -4,7 +4,8 @@ autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 " 关闭遇到错误时的声音提示
 set noerrorbells
 
-colo torte " enough
+syntax on
+colo reloaded
 
 set number " 显示行号
 if v:version >= 703
@@ -153,6 +154,3 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 Bundle 'wavded/vim-stylus'
 autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 "au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
-
-syntax on
-colo reloaded
