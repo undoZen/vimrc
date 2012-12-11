@@ -19,7 +19,7 @@ hi Typedef guifg=#00ff00 guibg=#000000 guisp=#000000 gui=NONE ctermfg=10 ctermbg
 hi Title guifg=#00ff00 guibg=#006400 guisp=#006400 gui=NONE ctermfg=10 ctermbg=22 cterm=NONE
 hi Folded guifg=#efface guibg=#000000 guisp=#000000 gui=underline ctermfg=230 ctermbg=NONE cterm=underline
 hi PreCondit guifg=#006400 guibg=#000000 guisp=#000000 gui=bold ctermfg=22 ctermbg=NONE cterm=bold
-hi Include guifg=#006400 guibg=#000000 guisp=#000000 gui=bold ctermfg=22 ctermbg=NONE cterm=bold
+hi Include guifg=#00ff00 guibg=#000000 guisp=#000000 gui=bold ctermfg=10 ctermbg=NONE cterm=bold
 hi Float guifg=#00ff00 guibg=#006400 guisp=#006400 gui=NONE ctermfg=10 ctermbg=22 cterm=NONE
 hi StatusLineNC guifg=#bebebe guibg=#000000 guisp=#000000 gui=bold,underline ctermfg=7 ctermbg=NONE cterm=bold,underline
 "hi CTagsMember -- no settings --
