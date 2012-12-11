@@ -154,3 +154,5 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 Bundle 'wavded/vim-stylus'
 autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 "au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
+
+autocmd BufNewFile,BufReadPost * syntax on
