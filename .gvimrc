@@ -1,2 +1,2 @@
-set guifont=Monaco:h11
+set guifont=Verily\ Serif\ Mono:h12
 syntax off
