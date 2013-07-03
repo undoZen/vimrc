@@ -52,7 +52,7 @@ imap <C-F> <Right>
 imap <C-B> <Left>
 
 " normal 模式按 esc 存储
-nmap <ESC> :w<CR>
+"nmap <ESC> :w<CR>
 
 au BufRead,BufNewFile *.j2,*.mustache set filetype=html
 
@@ -68,8 +68,15 @@ set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gbk "中文支持
 set hidden "让切换 buffer 保持 undo 记录
 set undofile "开启持久化撤销 (7.3)
+set history=1000
 set viminfo='1000,f1,<500,%,h "持久保存文件光标位置等信息
 set autochdir "自动更换工作目录到当前编辑文件的目录
+runtime macros/matchit.vim " %支持 if/end 关键词跳转和 xml tag 跳转等
+set wildmode=list:longest "打开文件时候的文件名补全类似 bash
+
+" backup files
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 "高亮搜索、渐进式搜索、忽略大小写
 set hlsearch
@@ -94,6 +101,17 @@ set autoread "如果正在编辑的文件在打开后又有其他程序更新，
 set cmdheight=1 " 设置命令行的高度
 set laststatus=2 " 始终显示状态行
 set stl=%F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w%h\ %=\ %l/%L,%c\ %m "设置状态栏的信息
+
+" for mac 中文输入法，一定要去掉 cmd+, 里面 Draw marked text inline 这个选项
+set noimdisable
+"set ims=1
+"set imactivatekey=C-space
+autocmd! InsertLeave * set imdisable|set iminsert=0
+autocmd! InsertEnter * set noimdisable|set iminsert=0
+
+" 用 ma 创建的书签可以用 ` 和 ' 跳转，他们两个互换一下比较自然
+nnoremap ' `
+nnoremap ` '
 
 filetype off " required for vundle
 
@@ -154,5 +172,8 @@ au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
 Bundle 'wavded/vim-stylus'
 autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 "au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
+"Bundle 'slimv.vim'
+Bundle 'vimwiki'
+let g:vimwiki_list = [{ 'syntax': 'markdown', 'ext': '.mkd'}]
 
 autocmd BufNewFile,BufReadPost * syntax on
