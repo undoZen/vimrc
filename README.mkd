@@ -1,0 +1,16 @@
+# 我的 VIM 设置，reloaded
+
+## Installation
+
+    cd somewhere/in/your/home
+    git clone https://github.com/undoZen/vimrc.git #You'd better fork it to your own GitHub repo and clone form it
+    cd ~
+    ln -s somewhere/in/your/home/vimrc/.vim .
+    ln -s somewhere/in/your/home/vimrc/.vimrc .
+    ln -s somewhere/in/your/home/vimrc/.gvimrc .
+    
+    #install vundle
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    
+    vim
+    #in your vim, run :BundleInstall
