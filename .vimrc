@@ -5,7 +5,7 @@ autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 set noerrorbells
 
 syntax on
-colo reloaded
+colo ir_black
 
 set number " 显示行号
 if v:version >= 703
@@ -50,6 +50,10 @@ imap <C-A> <Home>
 imap <C-E> <End>
 imap <C-F> <Right>
 imap <C-B> <Left>
+cmap <C-A> <Home>
+cmap <C-E> <End>
+cmap <C-F> <Right>
+cmap <C-B> <Left>
 
 " normal 模式按 esc 存储
 "nmap <ESC> :w<CR>
@@ -137,6 +141,7 @@ set rtp+=~/.vim/bundle/vundle/
 
  filetype indent on     " required!
  filetype plugin on     " required!
+ set modeline
  "
  " Brief help
  " :BundleList          - list configured bundles
@@ -153,15 +158,15 @@ nmap <C-T> :NERDTreeToggle<CR>
 Bundle 'c9s/bufexplorer'
 nmap <C-E> :BufExplorer<CR>
 
-Bundle 'Raimondi/delimitMate'
+"Bundle 'Raimondi/delimitMate'
 " 修复 Emacs 式编辑快捷键
-imap <C-A> <Plug>delimitMateHome
-imap <C-E> <Plug>delimitMateEnd
-imap <C-F> <Plug>delimitMateRight
-imap <C-B> <Plug>delimitMateLeft
-let g:delimitMate_autoclose=1
-let g:delimitMate_expand_cr=1
-let g:delimitMate_expand_space=1
+"imap <C-A> <Plug>delimitMateHome
+"imap <C-E> <Plug>delimitMateEnd
+"imap <C-F> <Plug>delimitMateRight
+"imap <C-B> <Plug>delimitMateLeft
+"let g:delimitMate_autoclose=0
+"let g:delimitMate_expand_cr=1
+"let g:delimitMate_expand_space=1
 
 Bundle 'groenewege/vim-less'
 autocmd BufNewFile,BufReadPost *.less set filetype=less
@@ -174,6 +179,40 @@ autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 "au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
 "Bundle 'slimv.vim'
 Bundle 'vimwiki'
-let g:vimwiki_list = [{ 'syntax': 'markdown', 'ext': '.mkd'}]
+" vimwiki
+" 参考了 ktmud 的设置
+" auto_export 是否在词条文件保存时就输出html
+"      \ 'html_header': 'E:/My Dropbox/Public/vimwiki_template/header.htm',
+"      \ 'html_footer': 'E:/My Dropbox/Public/vimwiki_template/footer.htm',
+
+let g:vimwiki_list = [{
+      \ 'path': '~/vimwiki/minitrue',
+      \ 'auto_export': 0,
+      \ 'diary_link_count': 5,
+      \ 'syntax': 'markdown', 'ext': '.mkd' }]
+
+" 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
+" let g:vimwiki_camel_case = 0
+
+" 标记为完成的 checklist 项目会有特别的颜色
+let g:vimwiki_hl_cb_checked = 1
+
+" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
+" let g:vimwiki_menu = ''
+
+" 是否开启按语法折叠  会让文件比较慢
+" let g:vimwiki_folding = 1
+
+" 是否在计算字串长度时用特别考虑中文字符
+let g:vimwiki_CJK_length = 1
+
+" 支持的 HTML tags
+let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 
 autocmd BufNewFile,BufReadPost * syntax on
+Bundle 'mattn/zencoding-vim'
+Bundle 'kchmck/vim-coffee-script'
+autocmd BufNewFile,BufRead *.iced set filetype=coffee
+au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
+
+Bundle 'wesgibbs/vim-irblack'
