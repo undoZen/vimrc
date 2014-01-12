@@ -35,6 +35,8 @@ nmap <C-n> :tabnext<cr>
 
 " 快捷键
 imap <C-d> <DEL>
+map <C-s> <ESC>:w<CR>
+imap <C-s> <ESC>:w<CR>
 map <C-g> <ESC>:w<CR>
 imap <C-g> <ESC>:w<CR>
 cmap w!! w !sudo tee % >/dev/null
