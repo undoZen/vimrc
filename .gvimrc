@@ -1,5 +1,5 @@
 if has('mac')
-  set gfn=Verily\ Serif\ Mono:h14
-  set gfw=H-SiuNiu:h14
+  set gfn=Sayo\ UV\ Mono\ DL:h13
+  set gfw=H-SS:h13
 endif
 syntax on
