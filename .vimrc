@@ -158,7 +158,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
 nmap <C-T> :NERDTreeToggle<CR>
 Bundle 'c9s/bufexplorer'
-nmap <C-E> :BufExplorer<CR>
+"nmap <C-E> :BufExplorer<CR>
 
 "Bundle 'Raimondi/delimitMate'
 " 修复 Emacs 式编辑快捷键
@@ -218,3 +218,14 @@ autocmd BufNewFile,BufRead *.iced set filetype=coffee
 au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
 
 Bundle 'wesgibbs/vim-irblack'
+
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+let g:gist_open_browser_after_post=1
+
+Bundle 'Shougo/unite.vim'
+"nmap <C-E> :Unit buffe<CR>i
+
+
+
+Bundle 'tpope/vim-fugitive'
