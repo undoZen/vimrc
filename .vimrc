@@ -70,7 +70,7 @@ set wrap "自动折行
 "set linebreak "折行不断词，让英文阅读更舒服些
 set nolinebreak "这是为了适应中文换行
 set backspace=start,indent,eol "让 Backspace 键可以删除换行
-set encoding=utf-8
+"set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gbk "中文支持
 set hidden "让切换 buffer 保持 undo 记录
 set undofile "开启持久化撤销 (7.3)
@@ -81,8 +81,8 @@ runtime macros/matchit.vim " %支持 if/end 关键词跳转和 xml tag 跳转等
 set wildmode=list:longest "打开文件时候的文件名补全类似 bash
 
 " backup files
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-tmp,~/_vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/_vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 "高亮搜索、渐进式搜索、忽略大小写
 set hlsearch
@@ -121,8 +121,14 @@ nnoremap ` '
 
 filetype off " required for vundle
 
-set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+if has('win32')
+  set rtp+=~/vimfiles/bundle/vundle/
+  let path='~/vimfiles/bundle'
+  call vundle#rc(path)
+else
+  set rtp+=~/.vim/bundle/vundle/
+  call vundle#rc()
+endif
 
  " let Vundle manage Vundle
  " required! 
