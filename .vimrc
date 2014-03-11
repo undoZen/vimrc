@@ -163,7 +163,7 @@ endif
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/nerdtree'
 nmap <C-T> :NERDTreeToggle<CR>
-Bundle 'c9s/bufexplorer'
+"Bundle 'c9s/bufexplorer'
 "nmap <C-E> :BufExplorer<CR>
 
 "Bundle 'Raimondi/delimitMate'
@@ -231,5 +231,6 @@ let g:gist_open_browser_after_post=1
 
 Bundle 'Shougo/unite.vim'
 nmap <C-E> :Unite buffer<CR>i
+"nmap <C-T> :Unite file<CR>
 
 Bundle 'tpope/vim-fugitive'
