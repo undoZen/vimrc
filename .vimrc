@@ -5,7 +5,7 @@ autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 set noerrorbells
 
 syntax on
-colo ir_black
+colo ron
 
 set number " 显示行号
 if v:version >= 703
@@ -40,7 +40,7 @@ imap <C-s> <ESC>:w<CR>
 map <C-g> <ESC>:w<CR>
 imap <C-g> <ESC>:w<CR>
 cmap w!! w !sudo tee % >/dev/null
-map <f3> :w\|!node %<cr>
+map <f3> :w\|!node --harmony %<cr>
 map <f4> :w\|!python -i %<cr>
 "map <f3> :w\|!gcc  % && cat %.input \| ./a.out<cr>
 "map <f4> :w\|!gcc -ggdb3 % && ./a.out<cr>
@@ -218,7 +218,7 @@ autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 "let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 
 autocmd BufNewFile,BufReadPost * syntax on
-Bundle 'mattn/zencoding-vim'
+"Bundle 'mattn/zencoding-vim'
 Bundle 'kchmck/vim-coffee-script'
 autocmd BufNewFile,BufRead *.iced set filetype=coffee
 au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
@@ -234,3 +234,7 @@ nmap <C-E> :Unite buffer<CR>i
 "nmap <C-T> :Unite file<CR>
 
 Bundle 'tpope/vim-fugitive'
+Bundle 'mattn/emmet-vim'
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,less EmmetInstall

@@ -7,3 +7,4 @@ if has('mac')
   set gfw=H-SS:h13
 endif
 syntax on
+colo ir_black
