@@ -1,5 +1,5 @@
 if has('win32')
-  set gfn=Consolas:h12
+  set gfn=Consolas:h11
 "  set gfw=Hei:h12:cANSI
 endif
 if has('mac')

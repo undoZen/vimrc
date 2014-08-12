@@ -5,7 +5,30 @@ autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 set noerrorbells
 
 syntax on
-colo ron
+colo reloaded
+
+" 在 iTerm/tmux 里面自动打开关闭 paste 模式
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 set number " 显示行号
 if v:version >= 703
@@ -18,6 +41,7 @@ set ruler " 在右下角显示当前行列等信息
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
+:autocmd BufRead,BufNewFile ~/cc/DysonShell/*.hbs setlocal ts=4 sts=4 sw=4
 set expandtab
 set smarttab
 
@@ -40,8 +64,9 @@ imap <C-s> <ESC>:w<CR>
 map <C-g> <ESC>:w<CR>
 imap <C-g> <ESC>:w<CR>
 cmap w!! w !sudo tee % >/dev/null
-map <f3> :w\|!node --harmony %<cr>
-map <f4> :w\|!python -i %<cr>
+map <f2> :w !pbcopy<cr>
+map <f3> :w\|!node %<cr>
+map <f4> :w\|!iced %<cr>
 "map <f3> :w\|!gcc  % && cat %.input \| ./a.out<cr>
 "map <f4> :w\|!gcc -ggdb3 % && ./a.out<cr>
 map <f5> :w\|!gccgo % && ./a.out<cr>
@@ -60,7 +85,7 @@ cmap <C-B> <Left>
 " normal 模式按 esc 存储
 "nmap <ESC> :w<CR>
 
-au BufRead,BufNewFile *.j2,*.mustache,*handlebars set filetype=html
+au BufRead,BufNewFile *.j2,*.mustache,*.hbs,*.handlebars,*.htmlx set filetype=html
 
 " Tab键和行尾空格可见
 set list
@@ -70,7 +95,7 @@ set wrap "自动折行
 "set linebreak "折行不断词，让英文阅读更舒服些
 set nolinebreak "这是为了适应中文换行
 set backspace=start,indent,eol "让 Backspace 键可以删除换行
-"set encoding=utf-8
+set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gbk "中文支持
 set hidden "让切换 buffer 保持 undo 记录
 set undofile "开启持久化撤销 (7.3)
@@ -109,11 +134,13 @@ set laststatus=2 " 始终显示状态行
 set stl=%F%m%r%h%y[%{&fileformat},%{&fileencoding}]\ %w%h\ %=\ %l/%L,%c\ %m "设置状态栏的信息
 
 " for mac 中文输入法，一定要去掉 cmd+, 里面 Draw marked text inline 这个选项
-set noimdisable
-"set ims=1
-"set imactivatekey=C-space
-autocmd! InsertLeave * set imdisable|set iminsert=0
-autocmd! InsertEnter * set noimdisable|set iminsert=0
+if has('mac')
+  set noimdisable
+  "set ims=1
+  "set imactivatekey=C-space
+  autocmd! InsertLeave * set imdisable|set iminsert=0
+  autocmd! InsertEnter * set noimdisable|set iminsert=0
+endif
 
 " 用 ma 创建的书签可以用 ` 和 ' 跳转，他们两个互换一下比较自然
 nnoremap ' `
@@ -129,6 +156,12 @@ else
   set rtp+=~/.vim/bundle/vundle/
   call vundle#rc()
 endif
+
+Bundle 'gkz/vim-ls'
+
+filetype indent on     " required!
+filetype plugin on     " required!
+set modeline
 
  " let Vundle manage Vundle
  " required! 
@@ -147,9 +180,6 @@ endif
  " Bundle 'git://git.wincent.com/command-t.git'
  " ...
 
- filetype indent on     " required!
- filetype plugin on     " required!
- set modeline
  "
  " Brief help
  " :BundleList          - list configured bundles
@@ -180,8 +210,8 @@ Bundle 'groenewege/vim-less'
 autocmd BufNewFile,BufReadPost *.less set filetype=less
 Bundle 'digitaltoad/vim-jade'
 autocmd BufNewFile,BufReadPost *.jade set filetype=jade
-Bundle 'plasticboy/vim-markdown'
-au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+Bundle 'tpope/vim-markdown'
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 Bundle 'wavded/vim-stylus'
 autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 "au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
@@ -220,7 +250,7 @@ autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 autocmd BufNewFile,BufReadPost * syntax on
 "Bundle 'mattn/zencoding-vim'
 Bundle 'kchmck/vim-coffee-script'
-autocmd BufNewFile,BufRead *.iced set filetype=coffee
+autocmd BufNewFile,BufRead *.coffee,*.iced set filetype=coffee
 au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
 
 Bundle 'wesgibbs/vim-irblack'
@@ -238,3 +268,14 @@ Bundle 'mattn/emmet-vim'
 let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,less EmmetInstall
+
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+
+Bundle "honza/vim-snippets"
+
+Bundle "mintplant/vim-literate-coffeescript"
+
+autocmd BufNewFile,BufRead *.coffee.md set filetype=litcoffee
+autocmd FileType litcoffee runtime ftplugin/coffee.vim
