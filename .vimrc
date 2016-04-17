@@ -290,7 +290,7 @@ Plugin 'wincent/command-t'
 
 call vundle#end()            " required
 
-au BufWritePost *.ls silent LiveScriptMake! -b | cwindow | redraw!
+au BufWritePost *.ls silent! !lsc -cb | cwindow | redraw!
 autocmd BufNewFile,BufReadPost *.less set filetype=less
 autocmd BufNewFile,BufReadPost *.jade set filetype=jade
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
