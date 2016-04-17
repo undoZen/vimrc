@@ -5,7 +5,11 @@ autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 set noerrorbells
 
 syntax on
-colo reloaded
+colo ir_black
+"colo reloaded
+
+nmap <leader>n :cnext<cr>
+nmap <leader>p :cprevious<cr>
 
 " 在 iTerm/tmux 里面自动打开关闭 paste 模式
 function! WrapForTmux(s)
@@ -38,9 +42,9 @@ endif
 set ruler " 在右下角显示当前行列等信息
 
 " 使用 2 个空格缩进而不用 Tab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 :autocmd BufRead,BufNewFile ~/cc/DysonShell/*.hbs setlocal ts=4 sts=4 sw=4
 set expandtab
 set smarttab
@@ -62,6 +66,8 @@ nmap <C-p> :tabprevious<cr>
 nmap <C-n> :tabnext<cr>
 
 " 快捷键
+imap <leader><leader> <ESC>
+imap ，， <ESC>
 imap <C-d> <DEL>
 map <C-s> <ESC>:w<CR>
 imap <C-s> <ESC>:w<CR>
@@ -69,8 +75,8 @@ map <C-g> <ESC>:w<CR>
 imap <C-g> <ESC>:w<CR>
 cmap w!! w !sudo tee % >/dev/null
 map <f2> :w !pbcopy<cr>
-map <f3> :w\|!node %<cr>
-map <f4> :w\|!iced %<cr>
+map <leader>r :w\|!node %<cr>
+map <f4> :w\|!lsc %<cr>
 "map <f3> :w\|!gcc  % && cat %.input \| ./a.out<cr>
 "map <f4> :w\|!gcc -ggdb3 % && ./a.out<cr>
 map <f5> :w\|!gccgo % && ./a.out<cr>
@@ -105,7 +111,6 @@ set hidden "让切换 buffer 保持 undo 记录
 set undofile "开启持久化撤销 (7.3)
 set history=1000
 set viminfo='1000,f1,<500,%,h "持久保存文件光标位置等信息
-set autochdir "自动更换工作目录到当前编辑文件的目录
 runtime macros/matchit.vim " %支持 if/end 关键词跳转和 xml tag 跳转等
 set wildmode=list:longest "打开文件时候的文件名补全类似 bash
 
@@ -161,14 +166,14 @@ else
   call vundle#begin()
 endif
 
-Plugin 'gkz/vim-ls'
-
 
 
  " let Vundle manage Vundle
  " required! 
 
 Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'gkz/vim-ls'
 
  " My Plugins here:
  "
@@ -193,7 +198,7 @@ Plugin 'VundleVim/Vundle.vim'
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Plugin command are not allowed..
 
-Plugin 'Lokaltog/vim-easymotion'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/nerdtree'
 nmap <C-T> :NERDTreeToggle<CR>
 "Plugin 'c9s/bufexplorer'
@@ -262,6 +267,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mattn/emmet-vim'
 let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
+autocmd FileType html,css,less EmmetInstall
+autocmd FileType html,css,less set iskeyword+=-
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -271,10 +278,17 @@ Plugin 'jwhitley/vim-literate-coffeescript'
 
 
 Plugin 'pangloss/vim-javascript'
+Plugin 'maksimr/vim-jsbeautify'
 Plugin 'mxw/vim-jsx'
 
+Plugin 'sukima/xmledit'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
+
+Plugin 'wincent/command-t'
+
 call vundle#end()            " required
-filetype plugin indent on    " required
 
 au BufWritePost *.ls silent LiveScriptMake! -b | cwindow | redraw!
 autocmd BufNewFile,BufReadPost *.less set filetype=less
@@ -287,6 +301,17 @@ au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
 autocmd FileType javascript,html,css,less EmmetInstall
 autocmd BufNewFile,BufRead *.coffee.md set filetype=litcoffee
 autocmd FileType litcoffee runtime ftplugin/coffee.vim
-autocmd BufNewFile,BufReadPost * syntax on
 
-"set modeline
+set wildignore+=.o,.obj,.git,node_modules/**
+nmap <leader>t :CommandT<CR>
+
+" autocmd BufWritePre *.js call JsBeautify()
+
+" Run checktime in buffers, but avoiding the "Command Line" (q:) window
+" 自动载入被修改过的文件
+au CursorHold,FocusGained,BufEnter * if getcmdtype() == '' | checktime | endif
+
+filetype plugin indent on    " required
+autocmd BufNewFile,BufReadPost * syntax on
+"set autochdir "自动更换工作目录到当前编辑文件的目录
+autocmd BufEnter * silent! :lcd%:p:h

@@ -1,12 +1,26 @@
-snippet re
-	require('${1:module}');
+snippet im
+	import ${1} from '${0}';
 snippet then
-	.then(function (${1:value}) {
+	then(function (${1:value}) {
 		${0}
 	})
+snippet f*
+	function * ${1}(${2}) {
+		${0}
+	}${3}
 snippet fr
 	function (req, res, next) {
 		${0}
 	});
 snippet aget
 	app.get(${0}
+snippet tape
+	tape(${1:'test description', }function (test) {
+		test.plan(1);
+		${0:test.ok(true);}
+	});
+snippet atape
+	tape(${1:'test description', }function (test) { ;(async function () {
+		test.plan(1);
+		${0:test.ok(true);}
+	}()); });
