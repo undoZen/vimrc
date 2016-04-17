@@ -47,6 +47,10 @@ set smarttab
 
 " 方便切换 splits
 nmap <C-Tab> <C-w><C-w>
+nmap <leader>h <C-w>h
+nmap <leader>l <C-w>l
+nmap <leader>j <C-w>j
+nmap <leader>k <C-w>k
 nmap <C-h> <C-w>h
 nmap <C-l> <C-w>l
 nmap <C-j> <C-w>j
@@ -149,54 +153,53 @@ nnoremap ` '
 filetype off " required for vundle
 
 if has('win32')
-  set rtp+=~/vimfiles/bundle/vundle/
+  set rtp+=~/vimfiles/bundle/Vundle.vim/
   let path='~/vimfiles/bundle'
   call vundle#rc(path)
 else
-  set rtp+=~/.vim/bundle/vundle/
-  call vundle#rc()
+  set rtp+=~/.vim/bundle/Vundle.vim/
+  call vundle#begin()
 endif
 
-Bundle 'gkz/vim-ls'
+Plugin 'gkz/vim-ls'
 
-filetype indent on     " required!
-filetype plugin on     " required!
-set modeline
+
 
  " let Vundle manage Vundle
  " required! 
- Bundle 'gmarik/vundle'
 
- " My Bundles here:
+Plugin 'VundleVim/Vundle.vim'
+
+ " My Plugins here:
  "
  " original repos on github
- " Bundle 'tpope/vim-fugitive'
- " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
- " Bundle 'tpope/vim-rails.git'
+ " Plugin 'tpope/vim-fugitive'
+ " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+ " Plugin 'tpope/vim-rails.git'
  " vim-scripts repos
- " Bundle 'L9'
- " Bundle 'FuzzyFinder'
+ " Plugin 'L9'
+ " Plugin 'FuzzyFinder'
  " non github repos
- " Bundle 'git://git.wincent.com/command-t.git'
+ " Plugin 'git://git.wincent.com/command-t.git'
  " ...
 
  "
  " Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ " :PluginList          - list configured bundles
+ " :PluginInstall(!)    - install(update) bundles
+ " :PluginSearch(!) foo - search(or refresh cache first) for foo
+ " :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
  "
  " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+ " NOTE: comments after Plugin command are not allowed..
 
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/nerdtree'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'scrooloose/nerdtree'
 nmap <C-T> :NERDTreeToggle<CR>
-"Bundle 'c9s/bufexplorer'
+"Plugin 'c9s/bufexplorer'
 "nmap <C-E> :BufExplorer<CR>
 
-"Bundle 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 " 修复 Emacs 式编辑快捷键
 "imap <C-A> <Plug>delimitMateHome
 "imap <C-E> <Plug>delimitMateEnd
@@ -206,17 +209,12 @@ nmap <C-T> :NERDTreeToggle<CR>
 "let g:delimitMate_expand_cr=1
 "let g:delimitMate_expand_space=1
 
-Bundle 'groenewege/vim-less'
-autocmd BufNewFile,BufReadPost *.less set filetype=less
-Bundle 'digitaltoad/vim-jade'
-autocmd BufNewFile,BufReadPost *.jade set filetype=jade
-Bundle 'tpope/vim-markdown'
-autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
-Bundle 'wavded/vim-stylus'
-autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
-"au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
-"Bundle 'slimv.vim'
-"Bundle 'vimwiki'
+Plugin 'groenewege/vim-less'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'tpope/vim-markdown'
+Plugin 'wavded/vim-stylus'
+"Plugin 'slimv.vim'
+"Plugin 'vimwiki'
 " vimwiki
 " 参考了 ktmud 的设置
 " auto_export 是否在词条文件保存时就输出html
@@ -247,35 +245,48 @@ autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
 " 支持的 HTML tags
 "let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 
-autocmd BufNewFile,BufReadPost * syntax on
-"Bundle 'mattn/zencoding-vim'
-Bundle 'kchmck/vim-coffee-script'
-autocmd BufNewFile,BufRead *.coffee,*.iced set filetype=coffee
-au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
+"Plugin 'mattn/zencoding-vim'
+Plugin 'kchmck/vim-coffee-script'
 
-Bundle 'wesgibbs/vim-irblack'
+Plugin 'wesgibbs/vim-irblack'
 
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 let g:gist_open_browser_after_post=1
 
-Bundle 'Shougo/unite.vim'
+Plugin 'Shougo/unite.vim'
 nmap <C-E> :Unite buffer<CR>i
 "nmap <C-T> :Unite file<CR>
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'mattn/emmet-vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mattn/emmet-vim'
 let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,less EmmetInstall
 
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'jwhitley/vim-literate-coffeescript'
 
-Bundle "honza/vim-snippets"
 
-Bundle "mintplant/vim-literate-coffeescript"
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+au BufWritePost *.ls silent LiveScriptMake! -b | cwindow | redraw!
+autocmd BufNewFile,BufReadPost *.less set filetype=less
+autocmd BufNewFile,BufReadPost *.jade set filetype=jade
+autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
+autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
+au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
+autocmd BufNewFile,BufRead *.coffee,*.iced set filetype=coffee
+au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
+autocmd FileType javascript,html,css,less EmmetInstall
 autocmd BufNewFile,BufRead *.coffee.md set filetype=litcoffee
 autocmd FileType litcoffee runtime ftplugin/coffee.vim
+autocmd BufNewFile,BufReadPost * syntax on
+
+"set modeline
