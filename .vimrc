@@ -1,4 +1,141 @@
 set nocompatible
+cd%:p:h
+filetype off " required for vundle
+
+if has('win32')
+  set rtp+=~/vimfiles/bundle/Vundle.vim/
+  let path='~/vimfiles/bundle'
+  call vundle#rc(path)
+else
+  set rtp+=~/.vim/bundle/Vundle.vim/
+  call vundle#begin()
+endif
+
+
+
+ " let Vundle manage Vundle
+ " required! 
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'gkz/vim-ls'
+
+ " My Plugins here:
+ "
+ " original repos on github
+ " Plugin 'tpope/vim-fugitive'
+ " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+ " Plugin 'tpope/vim-rails.git'
+ " vim-scripts repos
+ " Plugin 'L9'
+ " Plugin 'FuzzyFinder'
+ " non github repos
+ " Plugin 'git://git.wincent.com/command-t.git'
+ " ...
+
+ "
+ " Brief help
+ " :PluginList          - list configured bundles
+ " :PluginInstall(!)    - install(update) bundles
+ " :PluginSearch(!) foo - search(or refresh cache first) for foo
+ " :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
+ "
+ " see :h vundle for more details or wiki for FAQ
+ " NOTE: comments after Plugin command are not allowed..
+
+Plugin 'easymotion/vim-easymotion'
+Plugin 'scrooloose/nerdtree'
+nmap <C-T> :NERDTreeToggle<CR>
+"Plugin 'c9s/bufexplorer'
+"nmap <C-E> :BufExplorer<CR>
+
+"Plugin 'Raimondi/delimitMate'
+" 修复 Emacs 式编辑快捷键
+"imap <C-A> <Plug>delimitMateHome
+"imap <C-E> <Plug>delimitMateEnd
+"imap <C-F> <Plug>delimitMateRight
+"imap <C-B> <Plug>delimitMateLeft
+"let g:delimitMate_autoclose=0
+"let g:delimitMate_expand_cr=1
+"let g:delimitMate_expand_space=1
+
+Plugin 'groenewege/vim-less'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'tpope/vim-markdown'
+Plugin 'wavded/vim-stylus'
+"Plugin 'slimv.vim'
+"Plugin 'vimwiki'
+" vimwiki
+" 参考了 ktmud 的设置
+" auto_export 是否在词条文件保存时就输出html
+"      \ 'html_header': 'E:/My Dropbox/Public/vimwiki_template/header.htm',
+"      \ 'html_footer': 'E:/My Dropbox/Public/vimwiki_template/footer.htm',
+"
+"let g:vimwiki_list = [{
+"      \ 'path': '~/vimwiki/minitrue',
+"      \ 'auto_export': 0,
+"      \ 'diary_link_count': 5,
+"      \ 'syntax': 'markdown', 'ext': '.mkd' }]
+"
+" 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
+" let g:vimwiki_camel_case = 0
+"
+" 标记为完成的 checklist 项目会有特别的颜色
+"let g:vimwiki_hl_cb_checked = 1
+"
+" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
+" let g:vimwiki_menu = ''
+
+" 是否开启按语法折叠  会让文件比较慢
+" let g:vimwiki_folding = 1
+
+" 是否在计算字串长度时用特别考虑中文字符
+"let g:vimwiki_CJK_length = 1
+"
+" 支持的 HTML tags
+"let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
+
+"Plugin 'mattn/zencoding-vim'
+Plugin 'kchmck/vim-coffee-script'
+
+Plugin 'wesgibbs/vim-irblack'
+
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
+let g:gist_open_browser_after_post=1
+
+Plugin 'Shougo/unite.vim'
+nmap <C-E> :Unite buffer<CR>i
+"nmap <C-T> :Unite file<CR>
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'mattn/emmet-vim'
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,less EmmetInstall
+autocmd FileType html,css,less set iskeyword+=-
+
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'jwhitley/vim-literate-coffeescript'
+
+
+Plugin 'pangloss/vim-javascript'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'mxw/vim-jsx'
+
+Plugin 'sukima/xmledit'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-speeddating'
+Plugin 'tpope/vim-repeat'
+
+Plugin 'wincent/command-t'
+
+call vundle#end()            " required
+
+autocmd BufEnter * silent! :cd%:p:h
 let mapleader=","
 autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 " 关闭遇到错误时的声音提示
@@ -155,142 +292,8 @@ endif
 nnoremap ' `
 nnoremap ` '
 
-filetype off " required for vundle
 
-if has('win32')
-  set rtp+=~/vimfiles/bundle/Vundle.vim/
-  let path='~/vimfiles/bundle'
-  call vundle#rc(path)
-else
-  set rtp+=~/.vim/bundle/Vundle.vim/
-  call vundle#begin()
-endif
-
-
-
- " let Vundle manage Vundle
- " required! 
-
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'gkz/vim-ls'
-
- " My Plugins here:
- "
- " original repos on github
- " Plugin 'tpope/vim-fugitive'
- " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
- " Plugin 'tpope/vim-rails.git'
- " vim-scripts repos
- " Plugin 'L9'
- " Plugin 'FuzzyFinder'
- " non github repos
- " Plugin 'git://git.wincent.com/command-t.git'
- " ...
-
- "
- " Brief help
- " :PluginList          - list configured bundles
- " :PluginInstall(!)    - install(update) bundles
- " :PluginSearch(!) foo - search(or refresh cache first) for foo
- " :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Plugin command are not allowed..
-
-Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/nerdtree'
-nmap <C-T> :NERDTreeToggle<CR>
-"Plugin 'c9s/bufexplorer'
-"nmap <C-E> :BufExplorer<CR>
-
-"Plugin 'Raimondi/delimitMate'
-" 修复 Emacs 式编辑快捷键
-"imap <C-A> <Plug>delimitMateHome
-"imap <C-E> <Plug>delimitMateEnd
-"imap <C-F> <Plug>delimitMateRight
-"imap <C-B> <Plug>delimitMateLeft
-"let g:delimitMate_autoclose=0
-"let g:delimitMate_expand_cr=1
-"let g:delimitMate_expand_space=1
-
-Plugin 'groenewege/vim-less'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'tpope/vim-markdown'
-Plugin 'wavded/vim-stylus'
-"Plugin 'slimv.vim'
-"Plugin 'vimwiki'
-" vimwiki
-" 参考了 ktmud 的设置
-" auto_export 是否在词条文件保存时就输出html
-"      \ 'html_header': 'E:/My Dropbox/Public/vimwiki_template/header.htm',
-"      \ 'html_footer': 'E:/My Dropbox/Public/vimwiki_template/footer.htm',
-"
-"let g:vimwiki_list = [{
-"      \ 'path': '~/vimwiki/minitrue',
-"      \ 'auto_export': 0,
-"      \ 'diary_link_count': 5,
-"      \ 'syntax': 'markdown', 'ext': '.mkd' }]
-"
-" 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
-" let g:vimwiki_camel_case = 0
-"
-" 标记为完成的 checklist 项目会有特别的颜色
-"let g:vimwiki_hl_cb_checked = 1
-"
-" 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
-" let g:vimwiki_menu = ''
-
-" 是否开启按语法折叠  会让文件比较慢
-" let g:vimwiki_folding = 1
-
-" 是否在计算字串长度时用特别考虑中文字符
-"let g:vimwiki_CJK_length = 1
-"
-" 支持的 HTML tags
-"let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
-
-"Plugin 'mattn/zencoding-vim'
-Plugin 'kchmck/vim-coffee-script'
-
-Plugin 'wesgibbs/vim-irblack'
-
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-let g:gist_open_browser_after_post=1
-
-Plugin 'Shougo/unite.vim'
-nmap <C-E> :Unite buffer<CR>i
-"nmap <C-T> :Unite file<CR>
-
-Plugin 'tpope/vim-fugitive'
-Plugin 'mattn/emmet-vim'
-let g:user_emmet_mode='i'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,less EmmetInstall
-autocmd FileType html,css,less set iskeyword+=-
-
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'jwhitley/vim-literate-coffeescript'
-
-
-Plugin 'pangloss/vim-javascript'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'mxw/vim-jsx'
-
-Plugin 'sukima/xmledit'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-repeat'
-
-Plugin 'wincent/command-t'
-
-call vundle#end()            " required
-
-au BufWritePost *.ls silent! !lsc -cb | cwindow | redraw!
+au BufWritePost *.ls silent LiveScriptMake! -b | cwindow | redraw!
 autocmd BufNewFile,BufReadPost *.less set filetype=less
 autocmd BufNewFile,BufReadPost *.jade set filetype=jade
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
@@ -314,4 +317,3 @@ au CursorHold,FocusGained,BufEnter * if getcmdtype() == '' | checktime | endif
 filetype plugin indent on    " required
 autocmd BufNewFile,BufReadPost * syntax on
 "set autochdir "自动更换工作目录到当前编辑文件的目录
-autocmd BufEnter * silent! :lcd%:p:h
