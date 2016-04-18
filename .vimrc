@@ -179,9 +179,9 @@ endif
 set ruler " 在右下角显示当前行列等信息
 
 " 使用 2 个空格缩进而不用 Tab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 :autocmd BufRead,BufNewFile ~/cc/DysonShell/*.hbs setlocal ts=4 sts=4 sw=4
 set expandtab
 set smarttab
