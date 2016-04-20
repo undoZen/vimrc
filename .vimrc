@@ -1,5 +1,6 @@
 set nocompatible
 cd%:p:h
+set autochdir "自动更换工作目录到当前编辑文件的目录
 filetype off " required for vundle
 
 if has('win32')
@@ -135,7 +136,7 @@ Plugin 'wincent/command-t'
 
 call vundle#end()            " required
 
-autocmd BufEnter * silent! :cd%:p:h
+"autocmd BufEnter * silent! :cd%:p:h
 let mapleader=","
 autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 " 关闭遇到错误时的声音提示
@@ -316,4 +317,3 @@ au CursorHold,FocusGained,BufEnter * if getcmdtype() == '' | checktime | endif
 
 filetype plugin indent on    " required
 autocmd BufNewFile,BufReadPost * syntax on
-"set autochdir "自动更换工作目录到当前编辑文件的目录
