@@ -1,5 +1,6 @@
 set nocompatible
 cd%:p:h
+set autochdir "自动更换工作目录到当前编辑文件的目录
 filetype off " required for vundle
 
 if has('win32')
@@ -137,7 +138,7 @@ Plugin 'scrooloose/syntastic'
 
 call vundle#end()            " required
 
-"let g:syntastic_javascript_checkers = ['standard']
+let g:syntastic_javascript_checkers = ['standard']
 
 autocmd BufEnter * silent! :cd%:p:h
 let mapleader=","
@@ -324,4 +325,3 @@ au CursorHold,FocusGained,BufEnter * if getcmdtype() == '' | checktime | endif
 
 filetype plugin indent on    " required
 autocmd BufNewFile,BufReadPost * syntax on
-"set autochdir "自动更换工作目录到当前编辑文件的目录
