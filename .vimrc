@@ -133,7 +133,11 @@ Plugin 'tpope/vim-repeat'
 
 Plugin 'wincent/command-t'
 
+Plugin 'scrooloose/syntastic'
+
 call vundle#end()            " required
+
+"let g:syntastic_javascript_checkers = ['standard']
 
 autocmd BufEnter * silent! :cd%:p:h
 let mapleader=","
@@ -142,6 +146,7 @@ autocmd! bufwritepost .{,g}vimrc source % " 自动刷新
 set noerrorbells
 
 syntax on
+colo reloaded
 colo ir_black
 "colo reloaded
 
@@ -179,9 +184,9 @@ endif
 set ruler " 在右下角显示当前行列等信息
 
 " 使用 2 个空格缩进而不用 Tab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 :autocmd BufRead,BufNewFile ~/cc/DysonShell/*.hbs setlocal ts=4 sts=4 sw=4
 set expandtab
 set smarttab
@@ -217,7 +222,7 @@ map <f4> :w\|!lsc %<cr>
 "map <f3> :w\|!gcc  % && cat %.input \| ./a.out<cr>
 "map <f4> :w\|!gcc -ggdb3 % && ./a.out<cr>
 map <f5> :w\|!gccgo % && ./a.out<cr>
-set pastetoggle=<F7> " 粘贴代码可能有用
+set pastetoggle=<leader>p " 粘贴代码可能有用
 
 " Emacs 式快捷键
 imap <C-A> <Home>
@@ -298,12 +303,15 @@ autocmd BufNewFile,BufReadPost *.less set filetype=less
 autocmd BufNewFile,BufReadPost *.jade set filetype=jade
 autocmd BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=markdown
 autocmd BufNewFile,BufReadPost *.styl{,us} set filetype=stylus
-au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
+"au BufWritePost *.styl,*.stylus silent !stylus > %:r.css < %:p
 autocmd BufNewFile,BufRead *.coffee,*.iced set filetype=coffee
 au BufWritePost *.coffee,*.iced CoffeeLint | cwindow
-autocmd FileType javascript,html,css,less EmmetInstall
+autocmd FileType javascript,html,css,less,stylus EmmetInstall
 autocmd BufNewFile,BufRead *.coffee.md set filetype=litcoffee
 autocmd FileType litcoffee runtime ftplugin/coffee.vim
+
+"autocmd bufwritepost *.js silent !standard-format -w %
+" npm i -g standard-format
 
 set wildignore+=.o,.obj,.git,node_modules/**
 nmap <leader>t :CommandT<CR>
