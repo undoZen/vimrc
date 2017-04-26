@@ -1,16 +1,18 @@
-# 我的 VIM 设置，reloaded
+VundleVim/Vundle.vim# 我的 VIM 设置，reloaded
 
 ## Installation
 
-    cd somewhere/in/your/home
-    git clone https://github.com/undoZen/vimrc.git #You'd better fork it to your own GitHub repo and clone form it
+    export VIMRCDIR="/home/yourname/somewhere/in/your/home/vimrc"
+    cd $VIMRCDIR
+    git clone https://github.com/undoZen/vimrc.git $VIMRCDIR
+    #You'd better fork it to your own GitHub repo and clone form it
     cd ~
-    ln -s somewhere/in/your/home/vimrc/.vim .
-    ln -s somewhere/in/your/home/vimrc/.vimrc .
-    ln -s somewhere/in/your/home/vimrc/.gvimrc .
+    ln -s "$VIMRCDIR/.vim" .
+    ln -s "$VIMRCDIR/vimrc" .
+    ln -s "$VIMRCDIR/gvimrc" .
     
     #install vundle
-    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
     
     vim
-    #in your vim, run :BundleInstall
+    #in your vim, run :PluginInstall
